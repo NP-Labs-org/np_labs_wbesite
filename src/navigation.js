@@ -57,31 +57,31 @@ export const headerData = {
       ],
     },
     {
-      text: 'Landing',
+      text: 'Soluções',
       links: [
         {
-          text: 'Lead Generation',
-          href: getPermalink('/landing/lead-generation'),
+          text: 'Suporte',
+          href: getPermalink('/solutions/suport'),
         },
         {
-          text: 'Long-form Sales',
-          href: getPermalink('/landing/sales'),
+          text: 'Saúde',
+          href: getPermalink('/solutions/health'),
         },
         {
-          text: 'Click-Through',
-          href: getPermalink('/landing/click-through'),
+          text: 'E-commerce',
+          href: getPermalink('/solutions/ecommerce'),
         },
         {
-          text: 'Product Details (or Services)',
-          href: getPermalink('/landing/product'),
+          text: 'Finanças',
+          href: getPermalink('/solutions/finance'),
         },
         {
-          text: 'Coming Soon or Pre-Launch',
-          href: getPermalink('/landing/pre-launch'),
+          text: 'Vendas',
+          href: getPermalink('/solutions/sales'),
         },
         {
-          text: 'Subscription',
-          href: getPermalink('/landing/subscription'),
+          text: 'Compliance',
+          href: getPermalink('/solutions/compliance'),
         },
       ],
     },
@@ -110,70 +110,58 @@ export const headerData = {
         },
       ],
     },
-    {
-      text: 'Widgets',
-      href: '#',
-    },
   ],
-  actions: [{ text: 'Download', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],
+  actions: [{ text: 'Log In', href: 'https://np_labs.org/login', target: '_blank' }],
 };
 
 export const footerData = {
   links: [
     {
-      title: 'Product',
+      title: 'Soluções',
       links: [
-        { text: 'Features', href: '#' },
-        { text: 'Security', href: '#' },
-        { text: 'Team', href: '#' },
-        { text: 'Enterprise', href: '#' },
-        { text: 'Customer stories', href: '#' },
-        { text: 'Pricing', href: '#' },
-        { text: 'Resources', href: '#' },
+        { text: 'Suporte', href: '#' },
+        { text: 'Compliance', href: '#' },
+        { text: 'Saúde', href: '#' },
+        { text: 'Seguros', href: '#' },
+        { text: 'Finanças', href: '#' },
+        { text: 'Vendas', href: '#' },
+        { text: 'E-commerce', href: '#' },
       ],
     },
     {
-      title: 'Platform',
+      title: 'Plataforma',
       links: [
         { text: 'Developer API', href: '#' },
-        { text: 'Partners', href: '#' },
-        { text: 'Atom', href: '#' },
-        { text: 'Electron', href: '#' },
-        { text: 'AstroWind Desktop', href: '#' },
+        { text: 'Dashboard', href: '#' },
+        
       ],
     },
     {
-      title: 'Support',
+      title: 'Suporte',
       links: [
         { text: 'Docs', href: '#' },
-        { text: 'Community Forum', href: '#' },
-        { text: 'Professional Services', href: '#' },
-        { text: 'Skills', href: '#' },
-        { text: 'Status', href: '#' },
+        { text: 'Comunidade', href: '#' },
+        { text: 'Contato', href: '#' },
       ],
     },
     {
-      title: 'Company',
+      title: 'Empresa',
       links: [
-        { text: 'About', href: '#' },
+        { text: 'Sobre nós', href: '#' },
         { text: 'Blog', href: '#' },
-        { text: 'Careers', href: '#' },
-        { text: 'Press', href: '#' },
-        { text: 'Inclusion', href: '#' },
-        { text: 'Social Impact', href: '#' },
-        { text: 'Shop', href: '#' },
+        { text: 'Carreiras', href: '#' },
+        { text: 'Impernsa', href: '#' },
       ],
     },
   ],
   secondaryLinks: [
-    { text: 'Terms', href: getPermalink('/terms') },
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
+    { text: 'Termos', href: getPermalink('/terms') },
+    { text: 'Política de Privacidade', href: getPermalink('/privacy') },
   ],
   socialLinks: [
+    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: '#' },
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
-    { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
     { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/onwidget/astrowind' },
   ],
   footNote: `
