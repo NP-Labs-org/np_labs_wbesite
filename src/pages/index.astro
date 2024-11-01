@@ -2,14 +2,14 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
+// import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+// import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
+// import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
@@ -25,10 +25,10 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Agendar um Chamada',
-        href: 'https://github.com/onwidget/astrowind',
+        text: 'Fale com o CEO',
+        href: 'https://calendar.app.google/riPr32fUACSJAWXT7',
         target: '_blank',
-        icon: 'tabler:download',
+        icon: 'tabler:calendar',
       },
       { text: 'Saiba mais', href: '#features' },
     ]}
@@ -91,9 +91,9 @@ const metadata = {
         icon: 'tabler:shield-half',
       },
       {
-        title: 'Open to new ideas and contributions',
+        title: 'Inovação e Colaboração',
         description:
-          'Embracing a culture that is open to new ideas and contributions is integral fostering innovation, collaboration, and a dynamic user experience.',
+          'Nos unimos a sua equipe a fim de resolver problemas e criar soluções inovadoras.',
         icon: 'tabler:bulb',
       },
     ]}
@@ -123,7 +123,7 @@ const metadata = {
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      src: 'https://images.unsplash.com/photo-1728607424948-3e3a75b28c34?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1Mnx8fGVufDB8fHx8fA%3D%3D',
       alt: 'Colorful Image',
     }}
   >
@@ -141,24 +141,24 @@ const metadata = {
   <!-- Steps Widget ****************** -->
 
   <Steps
-    title="Como trabalhamos na NP Labs"
+    title="Tenha um sistema de busca inteligente em 3 passos que duram alguns minutos."
     items={[
       {
-        title: 'Passo 1: <span class="font-medium">Agendar uma Chamada</span>',
+        title: 'Passo 1: <span class="font-medium">Adicione documentos</span>',
         description:
-          "Entre em contato conosco para agendar uma chamada e discutir suas necessidades e expectativas.",
-        icon: 'tabler:calendar-month',
+          "Faça o upload de documentos que são imediatamente processados pelos nossos algorítmos.",
+        icon: 'tabler:database-plus',
       },
       {
-        title: 'Passo 2: <span class="font-medium">Planejamento</span>',
+        title: 'Passo 2: <span class="font-medium">Integre com a nossa API</span>',
         description:
-          "Planejamos a integração de IA com base nas suas necessidades específicas, definindo metas e métricas de sucesso.",
-        icon: 'tabler:replace',
+          "Nossa API é fácil de usar, tenha uma arquitetura de IA avançada em segundos.",
+        icon: 'tabler:api',
       },
       {
-        title: 'Passo 3: <span class="font-medium">Implementação</span>',
+        title: 'Passo 3: <span class="font-medium">Busque, Pergunte, Recomende</span>',
         description:
-          'Implementamos a solução personalizada de IA, garantindo que todos os processos estejam funcionando perfeitamente.',
+          'Tenha completo acesso aos documentos processados. Teste os resultados aplique em seu produto e coloque em produção.',
         icon: 'tabler:code',
       },
       {
@@ -167,7 +167,7 @@ const metadata = {
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1616198814651-e71f960c3180?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+      src: 'https://images.unsplash.com/photo-1523988285112-e6abb433b39c?q=80&w=3174&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
       alt: 'Steps image',
     }}
   />
@@ -183,55 +183,55 @@ const metadata = {
       title: 'Desenvolvimento de Software Personalizado',
       description:
         "Criamos soluções de software sob medida para atender às necessidades específicas do seu negócio, garantindo escalabilidade e eficiência.",
-      icon: 'flat-color-icons:template',
+      icon: 'tabler:device-laptop',
     },
     {
       title: 'Consultoria em Transformação Digital',
       description:
         "Ajudamos sua empresa a navegar na transformação digital, implementando tecnologias que otimizam processos e aumentam a produtividade.",
-      icon: 'flat-color-icons:gallery',
+      icon: 'tabler:qrcode',
     },
     {
       title: 'Integração de Sistemas',
       description:
         "Unificamos sistemas diversos para operar em sincronia, melhorando a comunicação e o fluxo de trabalho dentro da sua organização.",
-      icon: 'flat-color-icons:approval',
+      icon: 'tabler:puzzle',
     },
     {
-      title: 'Desenvolvimento de Aplicações Mobile',
+      title: 'Sistema de recomendações',
       description:
-        "Criamos aplicativos móveis intuitivos e robustos que proporcionam uma experiência superior para os seus usuários, onde quer que estejam.",
-      icon: 'flat-color-icons:document',
+        "Desenvolvemos sistemas de recomendação personalizados para melhorar a experiência do usuário e aumentar a fidelidade do cliente.",
+      icon: 'tabler:directions',
     },
     {
-      title: 'Análise e Visualização de Dados',
+      title: 'Análise intensa de dados',
       description:
-        "Transformamos seus dados em insights acionáveis com dashboards interativos e relatórios que impulsionam decisões estratégicas.",
-      icon: 'flat-color-icons:advertising',
+        "Processamos e analisamos grandes volumes de dados para extrair os insights necessários para a tomada de decisões estratégicas.",
+      icon: 'tabler:text-scan-2',
     },
     {
       title: 'Otimização de Performance de Aplicações',
       description:
         "Identificamos e corrigimos gargalos para garantir que suas aplicações rodem com a máxima eficiência e rapidez.",
-      icon: 'flat-color-icons:currency-exchange',
+      icon: 'tabler:variable',
     },
     {
       title: 'Segurança da Informação',
       description:
         "Implementamos políticas e soluções de segurança robustas para proteger seus dados e manter a conformidade com regulamentos.",
-      icon: 'flat-color-icons:voice-presentation',
+      icon: 'tabler:lock-access',
     },
     {
       title: 'Suporte e Manutenção de Sistemas',
       description:
         "Oferecemos suporte contínuo e serviços de manutenção para garantir que suas soluções de software estejam sempre atualizadas e funcionando perfeitamente.",
-      icon: 'flat-color-icons:business-contact',
+      icon: 'tabler:hours-24',
     },
     {
       title: 'Gerenciamento de Projetos Ágeis',
       description:
         "Utilizamos metodologias ágeis para gerenciar projetos de desenvolvimento, assegurando entregas rápidas e adaptáveis às mudanças.",
-      icon: 'flat-color-icons:database',
+      icon: 'tabler:layout-kanban',
     },
   ]}
 >
@@ -243,13 +243,13 @@ const metadata = {
 
   <!-- HighlightedPosts Widget ******* -->
 
-  <BlogLatestPosts
+  {/* <BlogLatestPosts
     title="Find out more content in our Blog"
     information={`The blog is used to display AstroWind documentation.
                         Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
                         Astro is a very interesting technology. Thanks.
                 `}
-  />
+  /> */}
 
   <!-- FAQs Widget ******************* -->
 
@@ -290,19 +290,19 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/onwidget/astrowind',
+        text: 'Fale com o CEO',
+        href: 'https://calendar.app.google/riPr32fUACSJAWXT7',
         target: '_blank',
-        icon: 'tabler:download',
+        icon: 'tabler:calendar',
       },
     ]}
   >
     <Fragment slot="title">
-      Conecte-se com a NP Labs para transformar seu negócio com IA
+      A IA que resolve o seu problema do seu jeito.
     </Fragment>
 
     <Fragment slot="subtitle">
-      Não perca a oportunidade de evoluir seu negócio com as soluções inovadoras de IA da NP Labs.
+      IA sob medida que atende as suas demandas, mais velocidade para o seu time. 
     </Fragment>
   </CallToAction>
 </Layout>

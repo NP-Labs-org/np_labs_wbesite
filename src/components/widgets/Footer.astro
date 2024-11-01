@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { SITE } from 'astrowind:config';
+// import { SITE } from 'astrowind:config';
 import { getHomePermalink } from '~/utils/permalinks';
 
 interface Link {
@@ -31,8 +31,16 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 dark:text-slate-300">
     <div class="grid grid-cols-12 gap-4 gap-y-8 sm:gap-8 py-8 md:py-12">
       <div class="col-span-12 lg:col-span-4">
-        <div class="mb-2">
-          <a class="inline-block font-bold text-xl" href={getHomePermalink()}>{SITE?.name}</a>
+        <div class="mb-2" >
+          <a class="flex items-end" href={getHomePermalink()}>
+            {/* Square */}
+            <div class="relative flex justify-end items-end w-16 h-16 bg-black dark:bg-white">
+              <span class="mr-1 mb-1 text-white text-2xl font-bold bg-transparent dark:text-black ">NP</span>
+            </div>
+            <div class="ml-1 mb-1">
+              <span class="font-bold text-2xl text-black dark:text-white">Labs</span>
+            </div>
+          </a>
         </div>
         <div class="text-sm text-muted flex gap-1">
           {
