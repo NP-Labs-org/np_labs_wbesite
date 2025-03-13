@@ -1,0 +1,13 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import UseCaseLayout from '~/components/widgets/UseCaseLayout.astro';
+import { useCases } from '~/data/use-cases';
+
+const metadata = {
+  title: 'HR & People Solutions - NP Labs',
+};
+---
+
+<Layout metadata={metadata}>
+  <UseCaseLayout useCase={useCases['hr-people']} />
+</Layout> 

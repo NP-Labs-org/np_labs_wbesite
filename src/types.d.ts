@@ -5,7 +5,7 @@ export interface Post {
   /** A unique ID number that identifies a post. */
   id: string;
 
-  /** A post’s unique slug – part of the post’s URL based on its name, i.e. a post called “My Sample Page” has a slug “my-sample-page”. */
+  /** A post's unique slug – part of the post's URL based on its name, i.e. a post called "My Sample Page" has a slug "my-sample-page". */
   slug: string;
 
   /**  */
@@ -182,7 +182,7 @@ export interface Disclaimer {
 
 // COMPONENTS
 export interface CallToAction extends Omit<HTMLAttributes<'a'>, 'slot'> {
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'link';
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'link' | 'hero';
   text?: string;
   icon?: string;
   classes?: Record<string, string>;
@@ -284,3 +284,16 @@ export interface Content extends Omit<Headline, 'classes'>, Widget {
 }
 
 export interface Contact extends Omit<Headline, 'classes'>, Form, Widget {}
+
+export interface Feature {
+  title: string;
+  description: string;
+  icon: string;
+}
+
+export interface UseCaseData {
+  title: string;
+  subtitle: string;
+  description: string;
+  features: Feature[];
+}

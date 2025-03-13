@@ -1,0 +1,57 @@
+---
+const companies = [
+  {
+    name: 'Google',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg',
+    height: 30
+  },
+  {
+    name: 'Meta',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg',
+    height: 32
+  },
+  {
+    name: 'Microsoft',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg',
+    height: 30
+  },
+  {
+    name: 'Amazon',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg',
+    height: 32
+  },
+  {
+    name: 'Apple',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg',
+    height: 35
+  }
+];
+
+export interface Props {
+  title?: string;
+}
+
+const { title = "Built by professionals from" } = Astro.props;
+---
+
+<section class="py-16 sm:py-20 bg-black border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center">
+      <p class="text-lg md:text-xl font-medium text-gray-400 mb-10">
+        {title}
+      </p>
+      <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 md:gap-x-16">
+        {companies.map((company) => (
+          <div class="flex items-center">
+            <img 
+              src={company.logo} 
+              alt={`${company.name} logo`} 
+              height={company.height}
+              class={`h-8 md:h-10 w-auto ${company.name === 'Apple' ? 'invert' : ''}`}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section> 

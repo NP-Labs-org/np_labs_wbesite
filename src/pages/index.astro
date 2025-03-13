@@ -1,16 +1,14 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
 import Hero from '~/components/widgets/Hero.astro';
-// import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
-// import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
-// import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Achievements from '~/components/widgets/Achievements.astro';
+import MainFeatures from '~/components/widgets/MainFeatures.astro';
+import VectorEffect from '~/components/widgets/VectorEffect.astro';
+import TitleRow from '~/components/widgets/TitleRow.astro';
 
 const metadata = {
   title: 'NP Labs',
@@ -19,290 +17,44 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
   <Hero
     actions={[
       {
-        variant: 'primary',
-        text: 'Fale com o CEO',
+        variant: 'hero',
+        text: 'TALK TO CEO',
         href: 'https://calendar.app.google/riPr32fUACSJAWXT7',
         target: '_blank',
         icon: 'tabler:calendar',
       },
-      { text: 'Saiba mais', href: '#features' },
+      { 
+        variant: 'hero',
+        text: 'LEARN MORE', 
+        href: '#features' 
+      },
     ]}
     image={{ src: '~/assets/images/hero_image.jpg', alt: 'NP Labs dashboard' }}
   >
     <Fragment slot="title">
-      Integre  a Inteligência artificial no seu negócio com 
-      <span class="text-accent dark:text-white highlight"> NP Labs</span>
+      ABILITY TO <span class="text-white">INTEGRATE ARTIFICIAL INTELLIGENCE</span> 
+      <span class="text-gray-500">INTO YOUR BUSINESS OPERATIONS.</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">NP Labs</span> transporta a sua equipe para a era da IA.</span
-      >
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">NP Labs</span>
-      oferece integração personalizada de IA para qualquer sistema corporativo. Soluções sob medida, seguras e eficientes.
+      NP Labs offers personalized AI integration for any corporate system. Custom, secure, and efficient solutions that transform your workflow and enhance productivity.
     </Fragment>
   </Hero>
 
-  <!-- Note Widget ******************* -->
-
-  {/* <Note /> */} 
-
-  <!-- Features Widget *************** -->
-
-  <Features
-    id="features"
-    tagline="Nossas Soluções"
-    title="O que oferecemos na NP Labs"
-    subtitle="Descubra como nossa abordagem personalizada de IA pode transformar o seu negócio."
-    items={[
-      {
-        title: 'Integração personalizada com IA',
-        description:
-          'Integramos IA aos sistemas existentes da sua empresa, utilizando LLMs, RAGs e diversas opções de armazenamento.',
-        icon: 'tabler:plug',
-      },
-      {
-        title: 'Busca semântica de documentos',
-        description:
-          'Realize buscas inteligentes em seus documentos, encontrando informações rapidamente através da busca semântica.',
-        icon: 'tabler:file-search',
-      },
-      {
-        title: 'Chatbots inteligentes',
-        description:
-          'Desenvolvemos chatbots personalizados para melhorar a interação e atendimento ao cliente.',
-        icon: 'tabler:robot',
-      },
-      {
-        title: 'Pipeline completo de processamento',
-        description:
-          'Processamento completo de qualquer tipo de documento, desde PDFs até planilhas do Excel.',
-        icon: 'tabler:chart-grid-dots',
-      },
-      {
-        title: 'Segurança e proteção',
-        description:
-          "Garantimos que suas informações estejam sempre seguras e protegidas.",
-        icon: 'tabler:shield-half',
-      },
-      {
-        title: 'Inovação e Colaboração',
-        description:
-          'Nos unimos a sua equipe a fim de resolver problemas e criar soluções inovadoras.',
-        icon: 'tabler:bulb',
-      },
-    ]}
+  <VectorEffect />
+  <TitleRow
+    leftTitle="TECHNOLOGICAL ADVANTAGES AND ADAPTABILITY"
+    leftSubtitle=""
+    rightText="RAIDER X® draws on Lockheed Martin's broad expertise in developing innovative systems using the latest digital design and manufacturing techniques."
   />
 
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    tagline="Sobre a NP Labs"
-    title="Nossa abordagem inovadora"
-    items={[
-      {
-        title: 'IA sob medida para seu negócio',
-        description:
-          'Oferecemos soluções de IA personalizadas, desenvolvidas especificamente para atender às necessidades do seu negócio.',
-      },
-      {
-        title: 'Tecnologia de ponta',
-        description:
-          'Utilizamos as tecnologias mais recentes para garantir alta performance e segurança.',
-      },
-      {
-        title: 'Compatibilidade e eficiência',
-        description:
-          'Integramos nossa solução com seu ambiente tecnológico existente, sem comprometer a eficiência.',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1728607424948-3e3a75b28c34?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw1Mnx8fGVufDB8fHx8fA%3D%3D',
-      alt: 'Colorful Image',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Aplicável em diversas indústrias.</h3>
-      Ganhe vantagem competitiva aplicando os melhores processos com IA.
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Content>
-
-
-  <!-- Steps Widget ****************** -->
-
-  <Steps
-    title="Tenha um sistema de busca inteligente em 3 passos que duram alguns minutos."
-    items={[
-      {
-        title: 'Passo 1: <span class="font-medium">Adicione documentos</span>',
-        description:
-          "Faça o upload de documentos que são imediatamente processados pelos nossos algorítmos.",
-        icon: 'tabler:database-plus',
-      },
-      {
-        title: 'Passo 2: <span class="font-medium">Integre com a nossa API</span>',
-        description:
-          "Nossa API é fácil de usar, tenha uma arquitetura de IA avançada em segundos.",
-        icon: 'tabler:api',
-      },
-      {
-        title: 'Passo 3: <span class="font-medium">Busque, Pergunte, Recomende</span>',
-        description:
-          'Tenha completo acesso aos documentos processados. Teste os resultados aplique em seu produto e coloque em produção.',
-        icon: 'tabler:code',
-      },
-      {
-        title: 'Pronto!',
-        icon: 'tabler:check',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1523988285112-e6abb433b39c?q=80&w=3174&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-      alt: 'Steps image',
-    }}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-  title="Nossos Principais Serviços"
-  subtitle="Explore as soluções que oferecemos para impulsionar a transformação digital do seu negócio"
-  tagline="Serviços"
-  items={[
-    {
-      title: 'Desenvolvimento de Software Personalizado',
-      description:
-        "Criamos soluções de software sob medida para atender às necessidades específicas do seu negócio, garantindo escalabilidade e eficiência.",
-      icon: 'tabler:device-laptop',
-    },
-    {
-      title: 'Consultoria em Transformação Digital',
-      description:
-        "Ajudamos sua empresa a navegar na transformação digital, implementando tecnologias que otimizam processos e aumentam a produtividade.",
-      icon: 'tabler:qrcode',
-    },
-    {
-      title: 'Integração de Sistemas',
-      description:
-        "Unificamos sistemas diversos para operar em sincronia, melhorando a comunicação e o fluxo de trabalho dentro da sua organização.",
-      icon: 'tabler:puzzle',
-    },
-    {
-      title: 'Sistema de recomendações',
-      description:
-        "Desenvolvemos sistemas de recomendação personalizados para melhorar a experiência do usuário e aumentar a fidelidade do cliente.",
-      icon: 'tabler:directions',
-    },
-    {
-      title: 'Análise intensa de dados',
-      description:
-        "Processamos e analisamos grandes volumes de dados para extrair os insights necessários para a tomada de decisões estratégicas.",
-      icon: 'tabler:text-scan-2',
-    },
-    {
-      title: 'Otimização de Performance de Aplicações',
-      description:
-        "Identificamos e corrigimos gargalos para garantir que suas aplicações rodem com a máxima eficiência e rapidez.",
-      icon: 'tabler:variable',
-    },
-    {
-      title: 'Segurança da Informação',
-      description:
-        "Implementamos políticas e soluções de segurança robustas para proteger seus dados e manter a conformidade com regulamentos.",
-      icon: 'tabler:lock-access',
-    },
-    {
-      title: 'Suporte e Manutenção de Sistemas',
-      description:
-        "Oferecemos suporte contínuo e serviços de manutenção para garantir que suas soluções de software estejam sempre atualizadas e funcionando perfeitamente.",
-      icon: 'tabler:hours-24',
-    },
-    {
-      title: 'Gerenciamento de Projetos Ágeis',
-      description:
-        "Utilizamos metodologias ágeis para gerenciar projetos de desenvolvimento, assegurando entregas rápidas e adaptáveis às mudanças.",
-      icon: 'tabler:layout-kanban',
-    },
-  ]}
->
-  <Fragment slot="bg">
-    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-  </Fragment>
-</Features2>
-
-
-  <!-- HighlightedPosts Widget ******* -->
-
-  {/* <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-                        Astro is a very interesting technology. Thanks.
-                `}
-  /> */}
-
-  <!-- FAQs Widget ******************* -->
-
-  <FAQs
-    title="Como nossos serviços de consultoria ajudam empresas a crescer de forma sustentável?"
-    subtitle="Oferecemos consultoria em transformação digital, otimização de processos, e estratégias de crescimento baseadas em dados. Trabalhamos com nossos clientes para identificar áreas de melhoria e implementar soluções que resultam em aumentos de eficiência e redução de custos, promovendo um crescimento sustentável."
-    tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'Quais são os benefícios do desenvolvimento de software personalizado para o meu negócio?',
-        description:
-          "Um software personalizado é construído especificamente para atender às necessidades únicas do seu negócio, resultando em processos mais eficientes, melhor experiência do cliente, e uma vantagem competitiva significativa. Nossos clientes frequentemente relatam reduções de custo operacional e melhorias na satisfação do cliente após implementar nossas soluções.",
-      },
-      {
-        title: 'Como funciona o processo para iniciar um projeto de desenvolvimento com nossa equipe?',
-        description:
-          'Começamos com uma consulta gratuita para entender suas necessidades e objetivos. Depois, elaboramos uma proposta detalhada e personalizada. Uma vez aprovado, iniciamos o desenvolvimento usando metodologias ágeis, garantindo entregas rápidas e contínuas, ajustadas conforme o feedback do cliente.',
-      },
-      {
-        title: 'Quais tecnologias utilizamos e como elas beneficiam os nossos projetos?',
-        description:
-          "Escolhemos a tecnologia com base nas necessidades do projeto para garantir soluções seguras, escaláveis e de alta performance, adaptadas ao seu crescimento.",
-      },
-      {
-        title: "Como asseguramos a segurança e conformidade dos nossos desenvolvimentos?",
-        description:
-          "Adotamos práticas rigorosas de segurança e seguimos padrões de conformidade como GDPR e LGPD. Além disso, realizamos auditorias regulares e testes de segurança para garantir que nossos softwares estejam protegidos contra ameaças e em conformidade com as regulamentações vigentes.",
-      },
-      
-    ]}
-  />
-
-
-  <!-- CallToAction Widget *********** -->
-
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Fale com o CEO',
-        href: 'https://calendar.app.google/riPr32fUACSJAWXT7',
-        target: '_blank',
-        icon: 'tabler:calendar',
-      },
-    ]}
-  >
-    <Fragment slot="title">
-      A IA que resolve o seu problema do seu jeito.
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      IA sob medida que atende as suas demandas, mais velocidade para o seu time. 
-    </Fragment>
-  </CallToAction>
+  <Achievements />
+  <MainFeatures />
+  <Features />
+  <Content />
+  <FAQs />
+  <CallToAction />
 </Layout>

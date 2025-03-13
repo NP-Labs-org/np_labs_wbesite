@@ -1,0 +1,79 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Our Team - NP Labs',
+};
+
+const teamMembers = [
+  {
+    name: 'João Victor Farrulla Darze',
+    role: 'Co-Founder and CEO',
+    bio: 'João Victor Farrulla Darze is an economist and AI researcher  with a passion for building products that help people live better lives. Has a Masters in Computer Science and Bachelor in Economics from PUC-Rio. He has made several data science and AI projects in multiple industries.',
+    image: '/src/assets/images/team/farrulla.jpeg'
+  },
+  {
+    name: 'Bernardo Bulgarelli',
+    role: 'Co-Founder and CTO',
+    bio: 'Bernardo Bulgarelli is a software engineer with a passion for building products that help people live better lives. Has a Bachelor in Computer Science from PUC-Rio. He has made several data science and AI projects in multiple industries.',
+    image: '/src/assets/images/team/bernardo.jpeg'
+  },
+  {
+    name: 'Miguel Angelus',
+    role: 'Co-Founder and Engineer',
+    bio: 'Miguel Angelus is a software engineer with a passion for building products that help people live better lives. Has a Bachelor in Computer Science from PUC-Rio. He has made several data science and AI projects in multiple industries.',
+    image: '/src/assets/images/team/miguel.jpeg'
+  }
+];
+---
+
+<Layout metadata={metadata}>
+  <section class="relative bg-black text-white mt-20 pt-8 pb-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+      <div class="mb-12">
+        <div class="flex mb-8">
+          <div class="text-gray-500 text-2xl font-light">[</div>
+          <div class="text-sm font-semibold tracking-wider ml-5 mr-16 pt-1 text-gray-500 uppercase">OUR TEAM</div>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-bold leading-tight tracking-tighter mb-4 font-heading uppercase">
+          Meet the team
+        </h1>
+        <p class="text-gray-400 max-w-3xl">
+          Our team of AI experts, engineers, and business strategists are committed to delivering cutting-edge solutions that transform your operations.
+        </p>
+      </div>
+
+      <div class="max-w-5xl mx-auto">
+        {teamMembers.map((member) => (
+          <div class="border border-white/10 bg-black/30 overflow-hidden mb-8 group hover:border-white/30 transition-all duration-300 relative">
+            <div class="absolute top-0 right-0 w-2 h-2 bg-gray-500 group-hover:bg-white transition-colors duration-300"></div>
+            <div class="md:flex">
+              <div class="p-8 md:flex-1 border-b md:border-b-0 md:border-r border-white/10">
+                <h2 class="text-xl md:text-2xl font-bold text-white mb-2 uppercase">
+                  {member.name}
+                </h2>
+                <p class="text-gray-400 mb-4 uppercase tracking-wider text-sm">
+                  {member.role}
+                </p>
+                <p class="text-gray-400 leading-relaxed">
+                  {member.bio}
+                </p>
+              </div>
+              <div class="md:w-1/3">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  class="w-full h-full object-cover"
+                  style="min-height: 250px;"
+                />
+              </div>
+            </div>
+            <div class="px-8 py-4 border-t border-white/10">
+              <div class="text-xs text-gray-500 uppercase tracking-wider">Team member since 2023</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout> 

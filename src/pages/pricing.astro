@@ -1,244 +1,183 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
-import Prices from '~/components/widgets/Pricing.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Features3 from '~/components/widgets/Features3.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import { Icon } from 'astro-icon/components';
+
 
 const metadata = {
-  title: 'Pricing',
+  title: 'Pricing - NP Labs',
 };
+
+const enterpriseFeatures = [
+  'Unlimited seats',
+  'Custom data sources',
+  'Single Tenant / On-Prem deployment options',
+  'SAML/SCIM & Okta integration',
+  'White-glove support',
+  'RBAC - Admins, Developers, Premium Models, Standard Models',
+  'Azure OpenAI support',
+  'Bring-your-own LLM',
+  'Automatic Acceptable Use Policies',
+  'Unlimited data (including many more sources, such as Netsuite, Snowflake, Databricks, GCP, S3, and more)',
+];
+
+const communityFeatures = [
+  { 
+    title: 'Features',
+    items: [
+      'Connect to 25+ apps',
+      'Choose Model provider',
+      'AI Assistants',
+      'Slack Bot',
+      'Hybrid Search',
+      'Developer APIs',
+    ] 
+  },
+  { 
+    title: 'Management & Security',
+    items: [
+      'Basic Auth',
+      'Google OAuth',
+    ] 
+  },
+  { 
+    title: 'Support & Customization',
+    items: [
+      'Community Support',
+    ] 
+  }
+];
+
+const onyxCloudFeatures = [
+  { 
+    title: 'Features',
+    items: [
+      'Standard Answers',
+      'Extended set of developer APIs',
+      'Query history',
+      'Admin Dashboard/Analytics',
+    ] 
+  },
+  { 
+    title: 'Management & Security',
+    items: [
+      'RBAC',
+      'Permission Inheritance',
+      'Encryption of Secrets',
+      'Curator Role',
+      'Configurable Usage Limits',
+    ] 
+  },
+  { 
+    title: 'Support & Customization',
+    items: [
+      'Priority Support',
+      'Whitelabeling',
+    ] 
+  }
+];
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
+  <section class="relative bg-black text-white m-20 py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-3xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading">
+          Pricing
+        </h1>
+        <p class="text-xl text-gray-400 mb-12">
+          NP Labs creates plans for every type of company.
+        </p>
+      </div>
 
-  <HeroText
-    tagline="Pricing"
-    title="Stellar Pricing for Every Journey"
-    subtitle="Choose the perfect plan that aligns with your cosmic goals."
-  />
+      <div class="flex flex-col lg:flex-row gap-8 mb-8">
+        <!-- Community Plan -->
+        <div class="lg:w-1/3 border border-white/10 rounded-lg overflow-hidden bg-black/30">
+          <div class="p-8">
+            <p class="text-sm uppercase text-gray-500 tracking-wider mb-2">Community</p>
+            <h2 class="text-5xl font-bold mb-4">Free</h2>
+            <p class="text-gray-400 mb-6">For small teams</p>
+            
+            <a href="#" class="block w-full bg-white text-black text-center px-6 py-3 rounded-lg font-semibold transition duration-200 hover:bg-white/90 mb-4">
+              Get Started
+            </a>
+            
+            <div class="inline-block bg-black/40 text-white text-sm px-4 py-1 rounded-full mb-8">
+              Self host
+            </div>
+            
+            {communityFeatures.map((section) => (
+              <div class="mb-6">
+                <h3 class="text-lg font-semibold mb-3">{section.title}</h3>
+                <ul class="space-y-2">
+                  {section.items.map((feature) => (
+                    <li class="flex items-start">
+                      <Icon name="tabler:check" class="flex-shrink-0 w-5 h-5 text-green-500 mt-0.5" />
+                      <span class="ml-3 text-gray-300">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <!-- Onyx Cloud Plan -->
+        <div class="lg:w-1/3 border border-white/10 rounded-lg overflow-hidden bg-black/30">
+          <div class="p-8">
+            <p class="text-sm uppercase text-gray-500 tracking-wider mb-2">Onyx Cloud</p>
+            <h2 class="text-5xl font-bold mb-4">$16<span class="text-xl font-normal">/seat/mon</span></h2>
+            <p class="text-gray-400 mb-6">For startups and scaleups</p>
+            
+            <a href="#" class="block w-full bg-white text-black text-center px-6 py-3 rounded-lg font-semibold transition duration-200 hover:bg-white/90 mb-4">
+              Select Plan
+            </a>
+            
+            <div class="inline-block bg-black/40 text-white text-sm px-4 py-1 rounded-full mb-8">
+              Onyx Cloud
+            </div>
+            
+            <p class="text-gray-300 mb-6">Everything in Community, plus:</p>
+            
+            {onyxCloudFeatures.map((section) => (
+              <div class="mb-6">
+                <h3 class="text-lg font-semibold mb-3">{section.title}</h3>
+                <ul class="space-y-2">
+                  {section.items.map((feature) => (
+                    <li class="flex items-start">
+                      <Icon name="tabler:check" class="flex-shrink-0 w-5 h-5 text-green-500 mt-0.5" />
+                      <span class="ml-3 text-gray-300">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
 
-  <!-- Pricing Widget ******************* -->
+        <!-- Enterprise Plan -->
+        <div class="lg:w-1/3 border border-white/10 rounded-lg overflow-hidden bg-black/30">
+          <div class="p-8">
+            <p class="text-sm uppercase text-gray-500 tracking-wider mb-2">Enterprise</p>
+            <h2 class="text-5xl font-bold mb-4">Custom</h2>
+            <p class="text-gray-400 mb-6">For large organizations</p>
+            
+            <a href="mailto:farrulla@np-labs.org" class="block w-full bg-white text-black text-center px-6 py-3 rounded-lg font-semibold transition duration-200 hover:bg-white/90 mb-10">
+              Contact Sales
+            </a>
+            
+            <ul class="space-y-3">
+              {enterpriseFeatures.map((feature) => (
+                <li class="flex items-start">
+                  <Icon name="tabler:check" class="flex-shrink-0 w-5 h-5 text-green-500 mt-0.5" />
+                  <span class="ml-3 text-gray-300">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <Prices
-    title="Our prices"
-    subtitle="Only pay for what you need"
-    prices={[
-      {
-        title: 'basic',
-        subtitle: 'Optimal choice for personal use',
-        price: 29,
-        period: 'per month',
-        items: [
-          {
-            description: 'Etiam in libero, et volutpat',
-          },
-          {
-            description: 'Aenean ac nunc dolor tristique',
-          },
-          {
-            description: 'Cras scelerisque accumsan lib',
-          },
-          {
-            description: 'In hac habitasse',
-          },
-        ],
-        callToAction: {
-          target: '_blank',
-          text: 'Get started',
-          href: '#',
-        },
-      },
-      {
-        title: 'standard',
-        subtitle: 'Optimal choice for small teams',
-        price: 69,
-        period: 'Per Month',
-        items: [
-          {
-            description: 'Proin vel laoreet',
-          },
-          {
-            description: 'Ut efficitur habitasse egestas',
-          },
-          {
-            description: 'Volutpat hac curabitur',
-          },
-          {
-            description: 'Pellentesque blandit ut nibh',
-          },
-          {
-            description: 'Donec fringilla sem',
-          },
-        ],
-        callToAction: {
-          target: '_blank',
-          text: 'Get started',
-          href: '#',
-        },
-        hasRibbon: true,
-        ribbonTitle: 'popular',
-      },
-      {
-        title: 'premium',
-        subtitle: 'Optimal choice for companies',
-        price: 199,
-        period: 'Per Month',
-        items: [
-          {
-            description: 'Curabitur suscipit risus',
-          },
-          {
-            description: 'Aliquam habitasse malesuada',
-          },
-          {
-            description: 'Suspendisse sit amet blandit',
-          },
-          {
-            description: 'Suspendisse auctor blandit dui',
-          },
-        ],
-        callToAction: {
-          target: '_blank',
-          text: 'Get started',
-          href: '#',
-        },
-      },
-    ]}
-  />
-
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    title="Price-related features"
-    subtitle="Discover the advantages of choosing our plans"
-    columns={2}
-    items={[
-      {
-        title: 'Tiered Pricing Plans',
-        description: 'Choose from a range of pricing plans designed to accommodate different budgets and requirements.',
-        icon: 'tabler:stairs',
-      },
-      {
-        title: 'Transparent Pricing',
-        description: 'Clearly displayed pricing details for each plan, with no hidden costs or unexpected charges.',
-        icon: 'tabler:flip-vertical',
-      },
-      {
-        title: 'Secure Payment Methods',
-        description: 'Secure payment gateways to protect your financial information during transactions.',
-        icon: 'tabler:shield-lock',
-      },
-      {
-        title: 'Instant Access',
-        description: `Immediate access to your chosen plan's features and templates upon subscription.`,
-        icon: 'tabler:accessible',
-      },
-      {
-        title: 'Upgrade Value',
-        description: 'Upgrade to higher-tier plans to unlock more features and benefits for an enhanced experience.',
-        icon: 'tabler:chevrons-up',
-      },
-      {
-        title: '24H support',
-        description: 'Questions answered via live chat, email or phone, every calendar day.',
-        icon: 'tabler:headset',
-      },
-    ]}
-    classes={{ container: 'max-w-5xl' }}
-  />
-
-  <!-- Steps Widget ****************** -->
-
-  <Steps
-    title="A guided journey from plans to creativity"
-    tagline="simplified process"
-    isReversed={true}
-    items={[
-      {
-        title: 'Explore plans',
-        icon: 'tabler:number-1',
-      },
-      {
-        title: 'Select a plan',
-        icon: 'tabler:number-2',
-      },
-      {
-        title: 'Sign Up / Log In',
-        icon: 'tabler:number-3',
-      },
-      {
-        title: 'Review order',
-        icon: 'tabler:number-4',
-      },
-      {
-        title: 'Enter payment details',
-        icon: 'tabler:number-5',
-      },
-      {
-        title: 'Confirmation',
-        icon: 'tabler:number-6',
-      },
-      {
-        title: 'Download and start using the template(s)',
-        icon: 'tabler:number-7',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1536816579748-4ecb3f03d72a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
-    }}
-  />
-
-  <!-- FAQs Widget ******************* -->
-
-  <FAQs
-    title="Pricing FAQs"
-    subtitle="Choosing the right plan is important, and we're here to answer your questions. If you have queries about our pricing options, you're in the right place."
-    columns={1}
-    items={[
-      {
-        title: 'Do the plans come with customer support?',
-        description:
-          'Absolutely, all plans include access to our dedicated customer support to assist you with any queries or concerns.',
-      },
-      {
-        title: 'Is there a trial period for the different plans?',
-        description:
-          "Unfortunately, we don't offer trial periods for the plans. However, you can check out our demo section to preview the quality of our templates.",
-      },
-      {
-        title: 'Can I switch between plans?',
-        description:
-          'Certainly! You can easily upgrade or downgrade your plan, at any time, to find the one that best suits your evolving requirements.',
-      },
-      {
-        title: 'What payment methods do you accept?',
-        description:
-          'We accept major credit cards and online payment methods to ensure a convenient and secure transaction process.',
-      },
-      {
-        title: 'Are there any hidden fees beyond the displayed cost?',
-        description:
-          'No, the subscription cost covers all the features and templates listed under each plan. There are no hidden fees or extra charges.',
-      },
-    ]}
-  />
-
-  <!-- CallToAction Widget *********** -->
-
-  <CallToAction
-    title="Ready to boost your projects?"
-    subtitle="Join our community of satisfied customers who have transformed their work with our templates."
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Get started now',
-        href: '/',
-      },
-    ]}
-  />
+  
 </Layout>

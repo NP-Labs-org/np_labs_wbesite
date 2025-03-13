@@ -2,8 +2,7 @@
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
 
 import Layout from '~/layouts/PageLayout.astro';
-import BlogList from '~/components/blog/List.astro';
-import Headline from '~/components/blog/Headline.astro';
+import List from '~/components/blog/List.astro';
 import Pagination from '~/components/blog/Pagination.astro';
 // import PostTags from "~/components/blog/Tags.astro";
 
@@ -36,17 +35,26 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <section class="px-6 sm:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
-    <Headline
-      subtitle="Estudos de caso, pesquisas de ponta e as mais novas aplicações de IA nos negócios! Tudo feito pelo nosso time... com a ajuda de alguma IA."
-    >
-      Blog
-    </Headline>
-    <BlogList posts={page.data} />
-    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
-    <!--
-      <PostTags tags={allCategories} class="mb-2" title="Search by Categories:" isCategory />
-      <PostTags tags={allTags}  title="Search by Tags:" />
-    -->
+  <section class="relative bg-black text-white pt-8 pb-16 mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+      <div class="mb-12">
+        <div class="flex mb-8">
+          <div class="text-gray-500 text-2xl font-light">[</div>
+          <div class="text-sm font-semibold tracking-wider ml-5 mr-16 pt-1 text-gray-500 uppercase">NEWS & INSIGHTS</div>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-bold leading-tight tracking-tighter mb-4 font-heading uppercase">
+          {currentPage > 1 ? `Latest Updates — Page ${currentPage}` : 'Latest Updates'}
+        </h1>
+        <p class="text-gray-400 max-w-3xl">
+          Insights, research, and industry perspectives from the NP Labs team
+        </p>
+      </div>
+
+      <List posts={page.data} />
+
+      <div class="mt-8 border-t border-white/10 pt-8">
+        <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+      </div>
+    </div>
   </section>
 </Layout>

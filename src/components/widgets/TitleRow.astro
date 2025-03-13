@@ -1,0 +1,41 @@
+---
+interface Props {
+  leftTitle: string;
+  leftSubtitle?: string;
+  rightText: string;
+}
+
+const { leftTitle, leftSubtitle, rightText } = Astro.props;
+---
+
+<div class="w-full bg-black py-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-4 gap-8">
+      <!-- Left Title Column -->
+      <div class="text-left">
+        <div class="flex items-start">
+          <span class="text-gray-500 mr-4 process-font">[</span>
+          <div>
+            <h2 class="text-gray-500 process-font text-lg tracking-wider mb-2">{leftTitle}</h2>
+            {leftSubtitle && (
+              <h3 class="text-gray-500 process-font text-lg tracking-wider">{leftSubtitle}</h3>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty Column -->
+      <div></div>
+
+      <!-- Right Text Column -->
+      <div class="text-left">
+        <p class="text-gray-400 process-font text-lg leading-relaxed">
+          {rightText}
+        </p>
+      </div>
+
+      <!-- Empty Column -->
+      <div></div>
+    </div>
+  </div>
+</div> 

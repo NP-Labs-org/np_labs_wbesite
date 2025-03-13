@@ -6,7 +6,7 @@ import Footer from '~/components/widgets/Footer.astro';
 
 import { headerData, footerData } from '~/navigation';
 
-import type { MetaData } from '~/types';
+import type { MetaData } from '~/types.d';
 
 export interface Props {
   metadata?: MetaData;
@@ -20,7 +20,7 @@ const { metadata } = Astro.props;
     <Announcement />
   </slot> -->
   <slot name="header">
-    <Header {...headerData} isSticky showRssFeed showToggleTheme />
+    <Header {...headerData} isSticky />
   </slot>
   <main>
     <slot />

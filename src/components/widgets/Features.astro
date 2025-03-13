@@ -2,7 +2,23 @@
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import ItemGrid from '~/components/ui/ItemGrid.astro';
 import Headline from '~/components/ui/Headline.astro';
-import type { Features as Props } from '~/types';
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  items?: Array<{
+    title?: string;
+    description?: string;
+    icon?: string;
+  }>;
+  columns?: number;
+  defaultIcon?: string;
+  id?: string;
+  isDark?: boolean;
+  classes?: Record<string, string>;
+  bg?: string;
+}
 
 const {
   title = await Astro.slots.render('title'),
@@ -10,11 +26,9 @@ const {
   tagline = await Astro.slots.render('tagline'),
   items = [],
   columns = 2,
-
   defaultIcon,
-
   id,
-  isDark = false,
+  isDark = true,
   classes = {},
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
@@ -28,7 +42,8 @@ const {
     defaultIcon={defaultIcon}
     classes={{
       container: '',
-      title: 'md:text-[1.3rem]',
+      title: 'md:text-[1.3rem] text-white',
+      description: 'text-gray-400',
       icon: 'text-white bg-primary rounded-full w-10 h-10 p-2 md:w-12 md:h-12 md:p-3 mr-4 rtl:ml-4 rtl:mr-0',
       ...((classes?.items as Record<string, never>) ?? {}),
     }}

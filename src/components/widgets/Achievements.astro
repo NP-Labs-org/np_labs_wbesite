@@ -1,0 +1,46 @@
+---
+const achievements = [
+  {
+    label: 'THE YEAR OF PROGRAMME LAUNCH',
+    value: '2019'
+  },
+  {
+    label: 'FLIGHT TEST HOURS',
+    value: '500+'
+  },
+  {
+    label: 'ACCURACY AT HIGH SPEEDS',
+    value: '95%'
+  }
+];
+---
+
+<section class="py-16 md:py-20 bg-black text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex mb-20">
+      <div class="text-gray-500">[</div>
+      <div class="text-sm font-semibold tracking-wider ml-5 mr-16 pt-1 text-gray-500">ACHIEVEMENTS & FACTS</div>
+      <div class="flex-1">
+        <h3 class="text-3xl md:text-4xl font-bold mb-4">
+          ABILITY TO <span class="text-white">INTEGRATE DIFFERENT TYPES OF SYSTEMS AND WEAPONS,</span>
+          <span class="text-gray-500">PROVIDING FLEXIBILITY FOR FUTURE UPGRADES.</span>
+        </h3>
+        <p class="text-gray-400 mt-8 ml-auto max-w-xl">
+          Quickly change and adapt systems depending on the mission, reducing preparation and repair time.
+        </p>
+      </div>
+    </div>
+
+    <div class="max-w-3xl mx-auto">
+      {achievements.map((achievement) => (
+        <div class="flex items-start border-t border-white/20 py-8">
+          <div class="w-1/3 text-sm text-gray-400">{achievement.label}</div>
+          <div class="w-1/3 text-4xl md:text-5xl font-bold">{achievement.value}</div>
+          <div class="w-1/3 flex justify-end">
+            <div class="w-2 h-2 bg-gray-500"></div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section> 

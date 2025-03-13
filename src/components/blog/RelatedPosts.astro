@@ -1,28 +1,50 @@
 ---
-import { APP_BLOG } from 'astrowind:config';
-
 import { getRelatedPosts } from '~/utils/blog';
-import BlogHighlightedPosts from '../widgets/BlogHighlightedPosts.astro';
-import type { Post } from '~/types';
-import { getBlogPermalink } from '~/utils/permalinks';
 
 export interface Props {
-  post: Post;
+  post: {
+    tags?: Array<{ title: string; slug: string }>;
+    id?: string;
+  };
 }
 
 const { post } = Astro.props;
+const relatedPosts = await getRelatedPosts(post, 4);
 
-const relatedPosts = post.tags ? await getRelatedPosts(post, 4) : [];
+if (!relatedPosts.length) return;
 ---
 
-{
-  APP_BLOG.isRelatedPostsEnabled ? (
-    <BlogHighlightedPosts
-      classes={{ container: 'pt-0 lg:pt-0 md:pt-0' }}
-      title="Related Posts"
-      linkText="View All Posts"
-      linkUrl={getBlogPermalink()}
-      postIds={relatedPosts.map((post) => post.id)}
-    />
-  ) : null
-}
+<section class="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+  <div class="mb-8">
+    <div class="flex mb-4">
+      <div class="text-gray-500 text-2xl font-light">[</div>
+      <div class="text-sm font-semibold tracking-wider ml-5 mr-16 pt-1 text-gray-500 uppercase">READ MORE</div>
+    </div>
+    <h3 class="text-2xl font-bold leading-tight tracking-tighter mb-4 font-heading uppercase text-white">
+      Related Articles
+    </h3>
+  </div>
+
+  <div class="grid gap-8 md:grid-cols-2">
+    {
+      relatedPosts.map((post) => (
+        <article class="relative border border-white/10 bg-black/30 overflow-hidden group hover:border-white/30 transition-all duration-300">
+          <div class="absolute top-0 right-0 w-2 h-2 bg-gray-500 group-hover:bg-white transition-colors duration-300"></div>
+          <a href={post.permalink} class="p-6 block">
+            <h4 class="text-lg font-bold leading-tight mb-2 font-heading uppercase text-white group-hover:text-white">
+              {post.title}
+            </h4>
+            <p class="text-gray-400 text-sm leading-relaxed line-clamp-2">
+              {post.excerpt || post.description}
+            </p>
+            <div class="mt-3 flex justify-between items-center">
+              <span class="text-xs text-gray-500 uppercase tracking-wider">
+                {post.author ? `By ${post.author}` : 'NP Labs Team'}
+              </span>
+            </div>
+          </a>
+        </article>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,73 @@
+---
+const features = [
+  {
+    title: 'MAXIMUM SPEED',
+    value: '460',
+    unit: 'KM/H',
+    gridArea: '1 / 1 / 2 / 2'
+  },
+  {
+    title: 'RAIDER X® draws on Lockheed Martins broad expertise in developing innovative systems using the latest digital design and manufacturing techniques.',
+    value: '',
+    unit: '',
+    gridArea: '1 / 2 / 2 / 3'
+  },
+  {
+    title: 'RANGE',
+    value: '> 500',
+    unit: 'KM',
+    gridArea: '1 / 3 / 2 / 4'
+  },
+  {
+    title: 'READY-TO-FIGHT TIME',
+    value: '< 30',
+    unit: 'SECONDS',
+    gridArea: '2 / 1 / 3 / 2'
+  },
+  null, // blank cell
+  {
+    title: 'FLIGHT ALTITUDE',
+    value: '3K',
+    unit: 'METERS',
+    gridArea: '2 / 3 / 3 / 4'
+  },
+  {
+    title: 'CREW',
+    value: '2',
+    unit: 'PEOPLE',
+    gridArea: '3 / 3 / 4 / 4'
+  }
+];
+---
+
+<section class="py-16 md:py-20 bg-black text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex mb-20">
+      <div class="text-gray-500 pt-1">[</div>
+      <div class="text-sm font-semibold tracking-wider ml-5 mr-16 pt-1 text-gray-500">MAIN FEATURES</div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-0 relative">
+      {features.map(feature => feature && (
+        <div 
+          class="border border-gray-800 p-8 min-h-[280px] flex flex-col justify-between relative -ml-[1px] -mt-[1px] hover:z-10"
+          style={`grid-area: ${feature.gridArea}`}
+        >
+          <div class="text-sm text-gray-400 max-w-[80%]">
+            {feature.title}
+          </div>
+          {feature.value && (
+            <div class="flex items-end gap-4">
+              <div class="text-4xl md:text-6xl font-bold">
+                {feature.value}
+              </div>
+              <div class="text-sm text-gray-400 mb-3">
+                {feature.unit}
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section> 

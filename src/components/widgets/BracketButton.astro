@@ -1,0 +1,25 @@
+---
+interface Props {
+  text: string;
+  href: string;
+  target?: string;
+}
+
+const { text, href, target = '_self' } = Astro.props;
+---
+
+<a 
+  href={href}
+  target={target}
+  class="group inline-flex items-center justify-center text-white hover:text-primary transition-colors duration-300"
+>
+  <span class="bracket text-2xl mr-4 text-gray-500 group-hover:text-primary transition-colors duration-300">[</span>
+  <span class="text-base uppercase tracking-wider font-medium">{text}</span>
+  <span class="bracket text-2xl ml-4 text-gray-500 group-hover:text-primary transition-colors duration-300">]</span>
+</a>
+
+<style>
+  .bracket {
+    font-family: monospace;
+  }
+</style> 

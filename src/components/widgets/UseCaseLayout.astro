@@ -1,0 +1,110 @@
+---
+import { Icon } from 'astro-icon/components';
+import SimpleSuggestionChatMock from '~/components/widgets/SimpleSuggestionChatMock.astro';
+import type { UseCaseData } from '~/types';
+import type { AstroComponentFactory } from 'astro/runtime/server/index.js';
+
+interface Props {
+  useCase: UseCaseData;
+  DemoComponent?: AstroComponentFactory;
+}
+
+const { useCase, DemoComponent = SimpleSuggestionChatMock } = Astro.props;
+---
+
+<section class="relative bg-black text-white m-20 py-16 md:py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <!-- Hero Section -->
+    <div class="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-start lg:items-center">
+      <div class="text-left">
+        <div class="flex mb-8">
+          <div class="text-gray-500 text-2xl font-light">[</div>
+          <div class="text-sm font-semibold tracking-wider ml-5 mr-16 pt-1 text-gray-500 uppercase">Use Case</div>
+        </div>
+        <h1 class="text-3xl md:text-4xl font-bold mb-4 font-heading uppercase">
+          {useCase.title}
+        </h1>
+        <h2 class="text-2xl font-bold mb-4 text-gray-400">
+          {useCase.subtitle}
+        </h2>
+        <p class="text-lg mb-6 text-gray-400">
+          {useCase.description}
+        </p>
+        <p class="text-base mb-8 text-gray-500">
+          Security, permissions, and compliance built in.
+        </p>
+        <div class="flex items-center gap-8 border-t border-white/20 pt-8 relative">
+          <div class="absolute top-0 right-0 -mt-1">
+            <div class="w-2 h-2 bg-gray-500"></div>
+          </div>
+          <div class="w-1/3 text-sm text-gray-400">READY TO LEARN MORE?</div>
+          <div class="w-2/3">
+            <a
+              href="#"
+              class="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-black bg-white hover:bg-white/90 transition duration-200 uppercase tracking-wider border border-white/30 rounded-none"
+            >
+              Get Started
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="relative w-full h-[600px] rounded-none overflow-hidden border border-white/10 bg-black/30">
+        <DemoComponent />
+      </div>
+    </div>
+
+    <!-- Main Features -->
+    <div class="mt-16 md:mt-20 border-t border-white/10 pt-16">
+      <div class="flex mb-12">
+        <div class="text-gray-500 text-2xl font-light">[</div>
+        <div class="text-sm font-semibold tracking-wider ml-5 mr-16 pt-1 text-gray-500 uppercase">Features</div>
+        <h2 class="text-2xl font-bold uppercase">
+          Empower your {useCase.title.toLowerCase()} team
+        </h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {useCase.features.map(feature => (
+          <div class="border border-white/10 rounded-none overflow-hidden group hover:border-white/30 transition-all duration-300">
+            <div class="border-b border-white/10 px-6 py-4 flex justify-between items-center">
+              <div class="flex items-center">
+                <div class="bg-black/50 p-2 mr-3">
+                  <Icon name={feature.icon} class="w-5 h-5 text-white" />
+                </div>
+                <h3 class="text-base uppercase font-bold text-white">
+                  {feature.title}
+                </h3>
+              </div>
+              <div class="w-2 h-2 bg-gray-500 group-hover:bg-white transition-colors duration-300"></div>
+            </div>
+            <div class="p-6 pt-5">
+              <p class="text-sm text-gray-400 leading-relaxed">
+                {feature.description}
+              </p>
+            </div>
+            <div class="px-6 pb-6 pt-2">
+              <div class="text-xs text-gray-500 uppercase tracking-wider">Compatible across platforms</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="mt-16 border-t border-white/10 pt-16 relative">
+      <div class="absolute top-0 right-4 -mt-1">
+        <div class="w-2 h-2 bg-gray-500"></div>
+      </div>
+      <div class="flex items-start">
+        <div class="w-1/3 text-sm text-gray-400 uppercase">Want to learn more?</div>
+        <div class="w-2/3">
+          <a
+            href="#"
+            class="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-black bg-white hover:bg-white/90 rounded-none uppercase tracking-wider border border-white/30"
+          >
+            Book a Demo
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 

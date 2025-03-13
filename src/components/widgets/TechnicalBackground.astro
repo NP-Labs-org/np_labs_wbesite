@@ -1,0 +1,180 @@
+<div class="absolute inset-0 overflow-hidden pointer-events-none">
+  <!-- Neural Network Pattern -->
+  <div class="absolute top-20 right-0 w-3/4 h-[800px] opacity-[0.15]">
+    <div class="relative w-full h-full">
+      <!-- Layer 1 (Input) -->
+      {Array(7).fill(0).map((_, index) => (
+        <div 
+          class="absolute w-4 h-4 bg-blue-500"
+          style={`left: 5%; top: ${10 + index * 12}%;`}
+        ></div>
+      ))}
+      
+      <!-- Layer 2 -->
+      {Array(5).fill(0).map((_, index) => (
+        <div 
+          class="absolute w-4 h-4 bg-blue-500"
+          style={`left: 25%; top: ${15 + index * 15}%;`}
+        ></div>
+      ))}
+
+      <!-- Layer 3 (Middle) -->
+      {Array(3).fill(0).map((_, index) => (
+        <div 
+          class="absolute w-4 h-4 bg-blue-500"
+          style={`left: 45%; top: ${25 + index * 20}%;`}
+        ></div>
+      ))}
+
+      <!-- Layer 4 -->
+      {Array(5).fill(0).map((_, index) => (
+        <div 
+          class="absolute w-4 h-4 bg-blue-500"
+          style={`left: 65%; top: ${15 + index * 15}%;`}
+        ></div>
+      ))}
+
+      <!-- Layer 5 (Output) -->
+      {Array(7).fill(0).map((_, index) => (
+        <div 
+          class="absolute w-4 h-4 bg-blue-500"
+          style={`left: 85%; top: ${10 + index * 12}%;`}
+        ></div>
+      ))}
+
+      <!-- Connecting Lines -->
+      <svg class="absolute inset-0" width="100%" height="100%">
+        <defs>
+          <linearGradient id="pulse-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color: rgb(59, 130, 246); stop-opacity: 0.6">
+              <animate 
+                attributeName="offset" 
+                values="-1;2" 
+                dur="3s" 
+                repeatCount="indefinite"
+              />
+            </stop>
+            <stop offset="50%" style="stop-color: rgb(59, 130, 246); stop-opacity: 0">
+              <animate 
+                attributeName="offset" 
+                values="-0.5;2.5" 
+                dur="3s" 
+                repeatCount="indefinite"
+              />
+            </stop>
+          </linearGradient>
+        </defs>
+
+        <!-- Layer 1 to Layer 2 connections -->
+        {Array(7).fill(0).map((_, i) => 
+          Array(5).fill(0).map((_, j) => (
+            <line 
+              x1="7%" 
+              y1={`${12 + i * 12}%`} 
+              x2="25%" 
+              y2={`${17 + j * 15}%`} 
+              stroke="url(#pulse-gradient)"
+              class="text-blue-500" 
+              stroke-width="1"
+            />
+          ))
+        )}
+
+        <!-- Layer 2 to Layer 3 connections -->
+        {Array(5).fill(0).map((_, i) => 
+          Array(3).fill(0).map((_, j) => (
+            <line 
+              x1="27%" 
+              y1={`${17 + i * 15}%`} 
+              x2="45%" 
+              y2={`${27 + j * 20}%`} 
+              stroke="url(#pulse-gradient)"
+              class="text-blue-500" 
+              stroke-width="1"
+            />
+          ))
+        )}
+
+        <!-- Layer 3 to Layer 4 connections -->
+        {Array(3).fill(0).map((_, i) => 
+          Array(5).fill(0).map((_, j) => (
+            <line 
+              x1="47%" 
+              y1={`${27 + i * 20}%`} 
+              x2="65%" 
+              y2={`${17 + j * 15}%`} 
+              stroke="url(#pulse-gradient)"
+              class="text-blue-500" 
+              stroke-width="1"
+            />
+          ))
+        )}
+
+        <!-- Layer 4 to Layer 5 connections -->
+        {Array(5).fill(0).map((_, i) => 
+          Array(7).fill(0).map((_, j) => (
+            <line 
+              x1="67%" 
+              y1={`${17 + i * 15}%`} 
+              x2="85%" 
+              y2={`${12 + j * 12}%`} 
+              stroke="url(#pulse-gradient)"
+              class="text-blue-500" 
+              stroke-width="1"
+            />
+          ))
+        )}
+      </svg>
+    </div>
+  </div>
+
+  <!-- Encoder-Decoder Pattern -->
+  <div class="absolute bottom-20 left-0 w-1/2 h-[600px] opacity-[0.15]">
+    <div class="relative w-full h-full">
+      <!-- Bottleneck representation -->
+      <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 border-2 border-blue-500"></div>
+      <!-- Input/Output blocks -->
+      <div class="absolute left-20 top-1/2 -translate-y-1/2 w-24 h-64 border-2 border-blue-500"></div>
+      <div class="absolute right-20 top-1/2 -translate-y-1/2 w-24 h-64 border-2 border-blue-500"></div>
+      <!-- Connecting lines -->
+      <svg class="absolute inset-0" width="100%" height="100%">
+        <path d="M80,200 Q300,200 520,200" fill="none" stroke="currentColor" class="text-blue-500 opacity-40" stroke-width="1.5" />
+        <path d="M80,300 Q300,300 520,300" fill="none" stroke="currentColor" class="text-blue-500 opacity-40" stroke-width="1.5" />
+        <path d="M80,100 Q300,100 520,100" fill="none" stroke="currentColor" class="text-blue-500 opacity-40" stroke-width="1.5" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Matrix Pattern -->
+  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[400px] h-[400px] opacity-[0.1]">
+    <div class="grid grid-cols-8 gap-3">
+      {Array(64).fill(0).map(() => (
+        <div class="w-4 h-4 border-2 border-blue-500"></div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Additional Floating Elements -->
+  <div class="absolute inset-0">
+    {Array(20).fill(0).map(() => (
+      <div 
+        class="absolute w-2 h-2 bg-blue-500 opacity-[0.2]"
+        style={`left: ${Math.random() * 100}%; top: ${Math.random() * 100}%;`}
+      ></div>
+    ))}
+  </div>
+</div>
+
+<style>
+  @keyframes pulse {
+    0% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 0.1;
+    }
+    100% {
+      opacity: 0.4;
+    }
+  }
+</style> 

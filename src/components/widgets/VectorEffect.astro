@@ -1,0 +1,106 @@
+---
+const totalSlots = 25;
+const activeNumbers = 18;
+---
+
+<div class="w-full bg-black py-4">
+  <div class="w-full px-4">
+    <div class="flex items-center justify-between font-mono text-sm md:text-base">
+      <span class="text-gray-500 px-2">[</span>
+      <div class="flex-1 grid grid-cols-25 gap-4" id="vectorGrid">
+        {Array(totalSlots).fill(null).map((_, i) => (
+          <div class="vector-slot relative flex items-center justify-center h-8" data-index={i}>
+            <span class="number-display text-gray-500 opacity-0 transition-all duration-500"></span>
+          </div>
+        ))}
+      </div>
+      <span class="text-gray-500 px-2">]</span>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{ totalSlots, activeNumbers }}>
+  // Generate random numbers with 1-2 decimals
+  const generateNumber = () => Number((Math.random()).toFixed(Math.random() > 0.5 ? 1 : 2));
+
+  class VectorEffect {
+    constructor() {
+      this.slots = Array.from(document.querySelectorAll('.vector-slot'));
+      this.numbers = Array.from({ length: activeNumbers }, () => ({
+        value: generateNumber(),
+        position: 0
+      }));
+      this.emptySlots = Array.from({ length: totalSlots }, (_, i) => i);
+      this.init();
+    }
+
+    init() {
+      // Initially place numbers randomly
+      this.numbers.forEach(number => {
+        const randomSlotIndex = this.getRandomEmptySlot();
+        if (randomSlotIndex !== -1) {
+          this.placeNumber(number, randomSlotIndex);
+        }
+      });
+
+      // Start animation cycle
+      setInterval(() => this.animateCycle(), 2000);
+    }
+
+    getRandomEmptySlot() {
+      if (this.emptySlots.length === 0) return -1;
+      const randomIndex = Math.floor(Math.random() * this.emptySlots.length);
+      return this.emptySlots.splice(randomIndex, 1)[0];
+    }
+
+    placeNumber(number, slotIndex) {
+      const slot = this.slots[slotIndex];
+      const display = slot.querySelector('.number-display');
+      if (display) {
+        display.textContent = number.value.toString();
+        display.classList.remove('opacity-0');
+        number.position = slotIndex;
+      }
+    }
+
+    removeNumber(slotIndex) {
+      const slot = this.slots[slotIndex];
+      const display = slot.querySelector('.number-display');
+      if (display) {
+        display.classList.add('opacity-0');
+        this.emptySlots.push(slotIndex);
+      }
+    }
+
+    animateCycle() {
+      // For each number, decide if it should move (30% chance)
+      this.numbers.forEach(number => {
+        if (Math.random() > 0.7) {
+          this.removeNumber(number.position);
+          const newSlot = this.getRandomEmptySlot();
+          if (newSlot !== -1) {
+            number.value = generateNumber();
+            this.placeNumber(number, newSlot);
+          }
+        }
+      });
+    }
+  }
+
+  // Initialize the effect immediately
+  new VectorEffect();
+</script>
+
+<style>
+  .grid-cols-25 {
+    grid-template-columns: repeat(25, 1fr);
+  }
+
+  .number-display {
+    @apply absolute transition-all duration-500;
+  }
+
+  .vector-slot {
+    min-width: 2rem;
+  }
+</style> 

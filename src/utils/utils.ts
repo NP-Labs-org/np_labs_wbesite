@@ -1,6 +1,4 @@
-import { I18N } from 'astrowind:config';
-
-export const formatter: Intl.DateTimeFormat = new Intl.DateTimeFormat(I18N?.language, {
+export const formatter: Intl.DateTimeFormat = new Intl.DateTimeFormat('en', {
   year: 'numeric',
   month: 'short',
   day: 'numeric',
@@ -49,4 +47,12 @@ export const toUiAmount = (amount: number) => {
   }
 
   return value;
+};
+
+export const formatDate = (date: Date): string => {
+  return new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
 };

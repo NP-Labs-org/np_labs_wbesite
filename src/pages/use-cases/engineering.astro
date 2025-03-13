@@ -1,0 +1,54 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import UseCaseLayout from '~/components/widgets/UseCaseLayout.astro';
+import { useCases } from '~/data/use-cases';
+
+const metadata = {
+  title: 'Engineering Solutions - NP Labs',
+};
+
+const features = [
+  {
+    title: 'Deploy internal AI tools in record time',
+    description: 'Skip the build phase and fast-track AI solutions for your organization with highly configurable, out-of-the-box tools that connect to your internal data',
+    icon: 'tabler:rocket',
+  },
+  {
+    title: 'Build with powerful APIs',
+    description: "Use Credal's APIs to integrate LLM capabilities into your platform — no need to build or maintain AI infrastructure from scratch.",
+    icon: 'tabler:api',
+  },
+  {
+    title: 'Unify fractured knowledge',
+    description: 'Bring together technical documentation, Slack threads, wikis, and GitHub repos in one place — ensuring engineers always have the context they need to build better, faster.',
+    icon: 'tabler:puzzle',
+  },
+];
+
+const companies = [
+  {
+    name: 'Google',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg',
+    height: 30
+  },
+  {
+    name: 'Meta',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg',
+    height: 32
+  },
+  {
+    name: 'Microsoft',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg',
+    height: 30
+  },
+  {
+    name: 'Amazon',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg',
+    height: 32
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <UseCaseLayout useCase={useCases['engineering']} />
+</Layout> 

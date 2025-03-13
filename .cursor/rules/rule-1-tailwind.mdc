@@ -1,0 +1,12 @@
+---
+description: Guidelines for developing code with Astro, Typescript and TailwindCSS
+globs: 
+alwaysApply: false
+---
+
+# How to handles styling based on tailwind base config files 
+
+
+- Use TailwindCSS for all styling, keeping the utility-first approach in mind.
+- always refere to [tailwind.css](mdc:src/assets/styles/tailwind.css) and [tailwind.config.cjs](mdc:tailwind.config.cjs) for consistency of styling used.
+    - If the developer demand some styling that falls out of these files directives, identify if it is a particular case or if it could be added a new styling directive to these configuration files.

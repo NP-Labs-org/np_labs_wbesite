@@ -1,96 +1,64 @@
-import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+import { getPermalink, getBlogPermalink } from './utils/permalinks';
 
 export const headerData = {
   links: [
-    // {
-    //   text: 'Homes',
-    //   links: [
-    //     {
-    //       text: 'SaaS',
-    //       href: getPermalink('/homes/saas'),
-    //     },
-    //     {
-    //       text: 'Startup',
-    //       href: getPermalink('/homes/startup'),
-    //     },
-    //     {
-    //       text: 'Mobile App',
-    //       href: getPermalink('/homes/mobile-app'),
-    //     },
-    //     {
-    //       text: 'Personal',
-    //       href: getPermalink('/homes/personal'),
-    //     },
-    //   ],
-    // },
-    // {
-    //   text: 'Pages',
-    //   links: [
-    //     {
-    //       text: 'Features (Anchor Link)',
-    //       href: getPermalink('/#features'),
-    //     },
-    //     {
-    //       text: 'Services',
-    //       href: getPermalink('/services'),
-    //     },
-    //     {
-    //       text: 'Pricing',
-    //       href: getPermalink('/pricing'),
-    //     },
-    //     {
-    //       text: 'About us',
-    //       href: getPermalink('/about'),
-    //     },
-    //     {
-    //       text: 'Contact',
-    //       href: getPermalink('/contact'),
-    //     },
-    //     {
-    //       text: 'Terms',
-    //       href: getPermalink('/terms'),
-    //     },
-    //     {
-    //       text: 'Privacy policy',
-    //       href: getPermalink('/privacy'),
-    //     },
-    //   ],
-    // },
-    // {
-    //   text: 'Soluções',
-    //   links: [
-    //     {
-    //       text: 'Suporte',
-    //       href: getPermalink('/solutions/suport'),
-    //     },
-    //     {
-    //       text: 'Saúde',
-    //       href: getPermalink('/solutions/health'),
-    //     },
-    //     {
-    //       text: 'E-commerce',
-    //       href: getPermalink('/solutions/ecommerce'),
-    //     },
-    //     {
-    //       text: 'Finanças',
-    //       href: getPermalink('/solutions/finance'),
-    //     },
-    //     {
-    //       text: 'Vendas',
-    //       href: getPermalink('/solutions/sales'),
-    //     },
-    //     {
-    //       text: 'Compliance',
-    //       href: getPermalink('/solutions/compliance'),
-    //     },
-    //   ],
-    // },
-    // {
-    //   text: 'Blog',
-    //   href: getBlogPermalink(),
-    // },
+    {
+      text: 'Product',
+      links: [
+        {
+          text: 'Self-service AI agents',
+          href: getPermalink('/product/ai-agents'),
+        },
+        {
+          text: 'Workplace search',
+          href: getPermalink('/product/workplace-search'),
+        },
+        {
+          text: 'Dev RAG',
+          href: getPermalink('/product/dev-rag'),
+        },
+      ],
+    },
+    {
+      text: 'Pricing',
+      href: getPermalink('/pricing'),
+    },
+    {
+      text: 'Use Cases',
+      links: [
+        {
+          text: 'E-commerce',
+          href: getPermalink('/use-cases/e-commerce'),
+        },
+        {
+          text: 'Engineering',
+          href: getPermalink('/use-cases/engineering'),
+        },
+        {
+          text: 'HR & People',
+          href: getPermalink('/use-cases/hr-people'),
+        },
+        {
+          text: 'Communication & PR',
+          href: getPermalink('/use-cases/communication-pr'),
+        },
+      ],
+    },
+    {
+      text: 'About',
+      links: [
+        {
+          text: 'Blog',
+          href: getBlogPermalink('/about/blog'),
+        },
+        {
+          text: 'Team',
+          href: getPermalink('/about/team'),
+        },
+      ],
+    },
   ],
-  actions: [{ text: 'Log In', href: 'https://dashboard.np-labs.org', target: '_blank' }],
+  actions: [{ text: 'LOG IN', variant: 'hero', href: 'https://dashboard.np-labs.org', target: '_blank' }],
 };
 
 export const footerData = {
