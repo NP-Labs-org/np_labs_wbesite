@@ -1,0 +1,54 @@
+---
+import { Icon } from 'astro-icon/components';
+import Image from '~/components/common/Image.astro';
+import Button from '~/components/ui/Button.astro';
+
+const clientTestimonial = {
+  quote: 'É raro encontrar uma ferramenta de IA que realmente entregue um impacto comercial imediato, mas a NP Labs faz isso. A equipe é uma parceira incrível e nos ajudou a alcançar uma adoção de IA muito acima do mercado: 85% de toda a nossa organização já está a bordo, e é uma das ferramentas mais amadas que temos.',
+  author: 'Ricardo Oliveira',
+  role: 'Diretor Financeiro, TechBR',
+  caseStudyLink: '#case-study'
+};
+---
+
+<section class="py-16 md:py-20 bg-black text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex mb-12">
+      <div class="text-gray-500 pt-1">[</div>
+      <div class="text-sm font-semibold tracking-wider ml-5 mr-16 pt-1 text-gray-500">DEPOIMENTOS</div>
+    </div>
+    
+    <div class="text-3xl font-bold mb-12 max-w-3xl uppercase text-white">
+      A NP LABS É AMADA PELOS CLIENTES
+    </div>
+    
+    <div class="border border-white/10 p-8 md:p-12 bg-black/30 max-w-4xl mx-auto">
+      <div class="flex flex-col md:flex-row gap-8">
+        <div class="flex-1">
+          <Icon name="tabler:quote" class="w-10 h-10 text-gray-500 mb-6" />
+          <p class="text-lg md:text-xl text-gray-300 mb-8">{clientTestimonial.quote}</p>
+          
+          <div class="flex items-center">
+            <div class="w-12 h-12 rounded-full bg-gray-700 flex items-center justify-center text-white font-bold mr-4">
+              {clientTestimonial.author.charAt(0)}
+            </div>
+            <div>
+              <div class="font-bold text-white">{clientTestimonial.author}</div>
+              <div class="text-gray-400">{clientTestimonial.role}</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flex items-end md:justify-end">
+          <a 
+            href={clientTestimonial.caseStudyLink} 
+            class="inline-flex items-center justify-center px-4 py-2 text-sm uppercase tracking-wider text-gray-400 border border-white/10 bg-black/30 hover:border-white/30 hover:text-white transition-all duration-300"
+          >
+            Leia o case completo
+            <Icon name="tabler:arrow-right" class="w-4 h-4 ml-2" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 

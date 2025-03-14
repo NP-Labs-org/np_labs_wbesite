@@ -1,0 +1,916 @@
+---
+import { Icon } from 'astro-icon/components';
+import Headline from '~/components/ui/Headline.astro';
+import { mockItems, legalItems, creditItems, advisoryItems, corporateItems, consultingItems, realEstateItems, assetManagementItems, useCases } from '~/data/mockMatrixData';
+
+interface MockMatrixProps {
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  id?: string;
+  isDark?: boolean;
+  classes?: Record<string, string | Record<string, string>>;
+  bg?: string;
+}
+
+const {
+  title = 'Matriz de Demonstração',
+  subtitle = 'Selecione um caso de uso para visualizar diferentes análises de documentos',
+  tagline,
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+}: MockMatrixProps = Astro.props;
+
+// Industry specific content
+const commandTexts = {
+  legal: "Estamos negociando uma nova aquisição para a Ocean Corp. Quais foram as principais alavancas de negociação em negócios semelhantes no passado?",
+  credit: "Quais são os termos típicos para negócios que concordamos com o Oak Rock no passado?",
+  advisory: "Estou me preparando para uma reunião com a American Airlines. Diga-me o que eu preciso saber, principalmente atualizações e desempenho em relação aos concorrentes.",
+  corporate: "Precisamos analisar todos os contratos corporativos atuais. Mostre-me os detalhes, especialmente os prazos de pagamento.",
+  consulting: "Estou pesquisando sobre a indústria de bebidas. Sintetize as principais conclusões sobre este mercado.",
+  realestate: "Como cada propriedade mudou de trimestre para trimestre? Faça uma avaliação sobre cada propriedade ao longo do tempo.",
+  assetmanagement: "Amanhã temos uma reunião com a equipe de gestão do Projeto Alpha. Faça uma agenda de due diligence com base na sua avaliação destes documentos."
+};
+---
+
+<section class="relative not-prose" {...id ? { id } : {}}>
+  <div class="absolute inset-0 pointer-events-none -z-[1]" aria-hidden="true">
+    <slot name="bg">
+      {bg ? <Fragment set:html={bg} /> : null}
+    </slot>
+  </div>
+  <div class:list={["relative max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16 lg:py-20 text-default", { dark: isDark }]}>
+    <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline} />
+    
+    <!-- Industry Selection Buttons -->
+    <div class="flex flex-wrap gap-2 mb-3 justify-center py-3">
+      <div class="flex flex-wrap gap-2 justify-center max-w-5xl">
+        {useCases.map(useCase => (
+          <button 
+            type="button"
+            class={`use-case-btn py-2 px-5 uppercase text-sm tracking-wider font-medium rounded-none transition-colors duration-200 border
+              ${useCase.id === 'legal' 
+                ? 'bg-blue-700 text-white border-blue-700' 
+                : 'bg-gray-300 text-gray-700 border-gray-300 hover:bg-blue-500 hover:text-white hover:border-blue-500'
+              }`}
+            data-id={useCase.id}
+          >
+            {useCase.name}
+          </button>
+        ))}
+      </div>
+    </div>
+    
+    <!-- Command interface - Square corners and closer to content -->
+    <div class="bg-white shadow-md border border-gray-200 overflow-hidden mb-1 rounded-none">
+      <!-- Header row with logo and project name -->
+      <div class="flex items-center justify-between border-b border-gray-200 p-4">
+        <div class="flex items-center space-x-3">
+          <span class="text-blue-600">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 3H3v18h18V3z"></path>
+              <path d="M21 9H3"></path>
+              <path d="M21 15H3"></path>
+              <path d="M9 3v18"></path>
+              <path d="M15 3v18"></path>
+            </svg>
+          </span>
+          <span class="font-medium text-sm text-gray-800">Projeto XYZ</span>
+        </div>
+      </div>
+      
+      <!-- Command input area -->
+      <div class="p-4 bg-gray-50 border-b border-gray-200">
+        <div class="flex items-center justify-between bg-white p-3 rounded-none border border-gray-200">
+          <p id="command-text" class="text-sm text-gray-800 font-medium">{commandTexts.legal}</p>
+          <span class="text-blue-600">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.1978 8.06074L12.2585 7.00013L7.75833 2.5L6.69772 3.56061L9.3866 6.2495L1.75781 6.2495L1.75781 7.74959H9.3866L6.69691 10.4393L7.75763 11.5L11.1974 8.06026L11.1978 8.06074Z" fill="currentColor"></path>
+            </svg>
+          </span>
+        </div>
+      </div>
+      
+      <!-- Action buttons -->
+      <div class="flex items-center justify-end space-x-2 p-4">
+        <button class="inline-flex items-center space-x-1 px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-none border border-gray-200 text-xs text-gray-800 font-medium">
+          <svg width="12" height="12" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.15625 1.67188H7.48542L10.6829 4.86937V8.06687H9.61708V5.93521H6.41958V2.73771H3.22208V11.2644H6.41958V12.3302H2.15625V1.67188ZM7.48542 4.86937H9.1756L7.48542 3.17919V4.86937Z" fill="currentColor"></path>
+            <path d="M9.08417 8.06687H8.01833V9.66563H6.41958V10.7315H8.01833V12.3302H9.08417V10.7315H10.6829V9.66563H9.08417V8.06687Z" fill="currentColor"></path>
+          </svg>
+          <span>Add documents</span>
+        </button>
+        <button class="inline-flex items-center space-x-1 px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-none border border-gray-200 text-xs text-gray-800 font-medium">
+          <svg width="12" height="12" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.875 2.20508H6.9409H10.1367H10.6678H11.2026V7.53456H10.1367V3.27098H6.9409V7.53456H5.875V3.27098H2.67527V10.7339H5.87126V11.7998H2.14062V11.7983H1.60938V2.2052H2.14062V2.20508H5.875ZM8.00781 7.53345H9.07371V9.13403H10.6698V10.1999H9.07371V11.797H8.00781V10.1999H6.40625V9.13403H8.00781V7.53345Z" fill="currentColor"></path>
+          </svg>
+          <span>Add column</span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Legal Industry Table -->
+    <div id="legal-table" class="bg-white shadow-md border border-gray-200 overflow-hidden rounded-none">
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="bg-gray-50 border-b border-gray-200">
+              <th class="w-12 py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:file-text" class="w-4 h-4 mr-1" />
+                  <span>Documento</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:currency-dollar" class="w-4 h-4 mr-1" />
+                  <span>Tipo de Contraprestação</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:chart-line" class="w-4 h-4 mr-1" />
+                  <span>Earn-Out</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:shield" class="w-4 h-4 mr-1" />
+                  <span>Indenização</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:arrow-back-up" class="w-4 h-4 mr-1" />
+                  <span>Rescisão Reversa</span>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              legalItems.map((item, index) => (
+                <tr class={`border-b border-gray-200 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} legal-row hover:bg-gray-100`}>
+                  <td class="py-3 px-4 text-sm text-gray-700 font-medium">{item.id}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700">
+                    <div class="flex items-center gap-2">
+                      <Icon name="tabler:file-text" class="w-5 h-5 text-gray-400" />
+                      <span>{item.document}</span>
+                    </div>
+                  </td>
+                  <td class="py-3 px-4 text-sm text-gray-700">{item.considerationType}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700 max-w-xs truncate">{item.earnOut}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700 max-w-xs truncate">{item.indemnification}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700 max-w-xs truncate">{item.reverseTermination}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <div class="flex items-center justify-center border-t border-gray-200 px-4 py-3 sm:px-6">
+        <button class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-none text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+          <Icon name="tabler:plus" class="w-4 h-4 mr-2" />
+          Add row
+        </button>  
+      </div>
+    </div>
+    
+    <!-- Credit Industry Table -->
+    <div id="credit-table" class="bg-white shadow-md border border-gray-200 overflow-hidden rounded-none hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="bg-gray-50 border-b border-gray-200">
+              <th class="w-12 py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:file-text" class="w-4 h-4 mr-1" />
+                  <span>Documento</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:building-bank" class="w-4 h-4 mr-1" />
+                  <span>Facilities</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:percentage" class="w-4 h-4 mr-1" />
+                  <span>Applicable Margin</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:chart-area-line" class="w-4 h-4 mr-1" />
+                  <span>Amortization</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:calendar" class="w-4 h-4 mr-1" />
+                  <span>Term</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:shield" class="w-4 h-4 mr-1" />
+                  <span>Call Protection</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:trending-up" class="w-4 h-4 mr-1" />
+                  <span>Incremental Debt Capacity</span>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              creditItems.map((item, index) => (
+                <tr class={`border-b border-gray-200 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} credit-row hover:bg-gray-100`}>
+                  <td class="py-3 px-4 text-sm text-gray-700 font-medium">{item.id}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700">
+                    <div class="flex items-center gap-2">
+                      <Icon name="tabler:file-text" class="w-5 h-5 text-gray-400" />
+                      <span>{item.document}</span>
+                    </div>
+                  </td>
+                  <td class="py-3 px-4 text-sm text-gray-700">{item.facilities}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700">{item.applicableMargin}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700">{item.amortization}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700">{item.term}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700 max-w-xs truncate">{item.callProtection}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700 max-w-xs truncate">{item.incrementalDebtCapacity}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <div class="flex items-center justify-center border-t border-gray-200 px-4 py-3 sm:px-6">
+        <button class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-none text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+          <Icon name="tabler:plus" class="w-4 h-4 mr-2" />
+          Add row
+        </button>  
+      </div>
+    </div>
+    
+    <!-- Advisory Industry Table -->
+    <div id="advisory-table" class="bg-white shadow-md border border-gray-200 overflow-hidden rounded-none hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="bg-gray-50 border-b border-gray-200">
+              <th class="w-12 py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:file-text" class="w-4 h-4 mr-1" />
+                  <span>Documento</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:calendar" class="w-4 h-4 mr-1" />
+                  <span>Data</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:building" class="w-4 h-4 mr-1" />
+                  <span>Indústria</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:target" class="w-4 h-4 mr-1" />
+                  <span>Prioridades Estratégicas</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:arrows-join" class="w-4 h-4 mr-1" />
+                  <span>Prioridades de M&A</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:news" class="w-4 h-4 mr-1" />
+                  <span>Desenvolvimentos Recentes</span>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              advisoryItems.map((item, index) => (
+                <tr class={`border-b border-gray-200 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} advisory-row hover:bg-gray-100`}>
+                  <td class="py-3 px-4 text-sm text-gray-700 font-medium">{item.id}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700">
+                    <div class="flex items-center gap-2">
+                      <Icon name="tabler:file-text" class="w-5 h-5 text-gray-400" />
+                      <span>{item.document}</span>
+                    </div>
+                  </td>
+                  <td class="py-3 px-4 text-sm text-gray-700">{item.date}</td>
+                  <td class="py-3 px-4">
+                    <span class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-none bg-pink-100 text-pink-800">
+                      {item.industry}
+                    </span>
+                  </td>
+                  <td class="py-3 px-4 text-sm text-gray-700 max-w-xs truncate">{item.strategicPriorities}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700 max-w-xs truncate">{item.goForwardMAPriorities}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700 max-w-xs truncate">{item.recentMaterialDevelopments}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <div class="flex items-center justify-center border-t border-gray-200 px-4 py-3 sm:px-6">
+        <button class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-none text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+          <Icon name="tabler:plus" class="w-4 h-4 mr-2" />
+          Add row
+        </button>  
+      </div>
+    </div>
+    
+    <!-- Corporate Industry Table -->
+    <div id="corporate-table" class="bg-white shadow-md border border-gray-200 overflow-hidden rounded-none hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="bg-gray-50 border-b border-gray-200">
+              <th class="w-12 py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:file-text" class="w-4 h-4 mr-1" />
+                  <span>Documento</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:building" class="w-4 h-4 mr-1" />
+                  <span>Cliente</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:currency-real" class="w-4 h-4 mr-1" />
+                  <span>Valor do Contrato</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:clipboard" class="w-4 h-4 mr-1" />
+                  <span>Tipo de Serviço</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:calendar-time" class="w-4 h-4 mr-1" />
+                  <span>Prazo de Pagamento</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:calendar" class="w-4 h-4 mr-1" />
+                  <span>Data de Início</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:clock" class="w-4 h-4 mr-1" />
+                  <span>Duração</span>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              corporateItems.map((item, index) => (
+                <tr class={`border-b border-gray-200 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} corporate-row hover:bg-gray-100`}>
+                  <td class="py-3 px-4 text-sm text-gray-700 font-medium">{item.id}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700">
+                    <div class="flex items-center gap-2">
+                      <Icon name="tabler:file-text" class="w-5 h-5 text-gray-400" />
+                      <span>{item.document}</span>
+                    </div>
+                  </td>
+                  <td class="py-3 px-4 text-sm text-gray-700">{item.clientName}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700">{item.contractValue}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700">{item.serviceType}</td>
+                  <td class="py-3 px-4">
+                    <span class={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-none
+                      ${item.paymentSchedule === '30 dias' ? 'bg-orange-100 text-orange-800' : 
+                        item.paymentSchedule === '60 dias' ? 'bg-green-100 text-green-800' : 
+                        'bg-gray-100 text-gray-800'}`}>
+                      {item.paymentSchedule}
+                    </span>
+                  </td>
+                  <td class="py-3 px-4 text-sm text-gray-700">{item.startDate}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700">{item.duration}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <div class="flex items-center justify-center border-t border-gray-200 px-4 py-3 sm:px-6">
+        <button class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-none text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+          <Icon name="tabler:plus" class="w-4 h-4 mr-2" />
+          Add row
+        </button>  
+      </div>
+    </div>
+    
+    <!-- Consulting Industry Table -->
+    <div id="consulting-table" class="bg-white shadow-md border border-gray-200 overflow-hidden rounded-none hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="bg-gray-50 border-b border-gray-200">
+              <th class="w-12 py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:file-text" class="w-4 h-4 mr-1" />
+                  <span>Documento</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:user" class="w-4 h-4 mr-1" />
+                  <span>Autor</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:calendar" class="w-4 h-4 mr-1" />
+                  <span>Ano do Relatório</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:chart-dots" class="w-4 h-4 mr-1" />
+                  <span>Tendências da Indústria</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:rocket" class="w-4 h-4 mr-1" />
+                  <span>Impulsionadores</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:chart-grid-dots" class="w-4 h-4 mr-1" />
+                  <span>Dinâmica Competitiva</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:trending-up" class="w-4 h-4 mr-1" />
+                  <span>Crescimento Projetado</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:receipt" class="w-4 h-4 mr-1" />
+                  <span>Destaques de Preços</span>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              consultingItems.map((item, index) => (
+                <tr class={`border-b border-gray-200 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} consulting-row hover:bg-gray-100`}>
+                  <td class="py-3 px-4 text-sm text-gray-700 font-medium">{item.id}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700">
+                    <div class="flex items-center gap-2">
+                      <Icon name="tabler:file-text" class="w-5 h-5 text-gray-400" />
+                      <span>{item.document}</span>
+                    </div>
+                  </td>
+                  <td class="py-3 px-4 text-sm text-gray-700">{item.author}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700">{item.yearOfReport}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700 max-w-xs truncate">{item.industryTrends}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700 max-w-xs truncate">{item.drivers}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700 max-w-xs truncate">{item.competitiveDynamics}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700 max-w-xs truncate">{item.projectedGrowth}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700 max-w-xs truncate">{item.pricingHighlights}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <div class="flex items-center justify-center border-t border-gray-200 px-4 py-3 sm:px-6">
+        <button class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-none text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+          <Icon name="tabler:plus" class="w-4 h-4 mr-2" />
+          Add row
+        </button>  
+      </div>
+    </div>
+    
+    <!-- Real Estate Industry Table -->
+    <div id="realestate-table" class="bg-white shadow-md border border-gray-200 overflow-hidden rounded-none hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="bg-gray-50 border-b border-gray-200">
+              <th class="w-12 py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:file-text" class="w-4 h-4 mr-1" />
+                  <span>Documento</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:calendar-stats" class="w-4 h-4 mr-1" />
+                  <span>Trimestre</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:building-community" class="w-4 h-4 mr-1" />
+                  <span>Cidade</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:ruler-2" class="w-4 h-4 mr-1" />
+                  <span>Tamanho da Propriedade</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:currency-real" class="w-4 h-4 mr-1" />
+                  <span>Valor de Mercado</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:home" class="w-4 h-4 mr-1" />
+                  <span>Tipo</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:building" class="w-4 h-4 mr-1" />
+                  <span>Condição do Imóvel</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:users" class="w-4 h-4 mr-1" />
+                  <span>Inquilinos</span>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              realEstateItems.map((item, index) => (
+                <tr class={`border-b border-gray-200 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} realestate-row hover:bg-gray-100`}>
+                  <td class="py-3 px-4 text-sm text-gray-700 font-medium">{item.id}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700">
+                    <div class="flex items-center gap-2">
+                      <Icon name="tabler:file-text" class="w-5 h-5 text-gray-400" />
+                      <span>{item.document}</span>
+                    </div>
+                  </td>
+                  <td class="py-3 px-4 text-sm text-gray-700">{item.quarter}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700">{item.city}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700">{item.propertySize}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700">{item.marketValue}</td>
+                  <td class="py-3 px-4">
+                    <span class={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-none 
+                      ${item.propertyType === 'Comercial' ? 'bg-blue-100 text-blue-800' : 
+                        item.propertyType === 'Varejo' ? 'bg-green-100 text-green-800' : 
+                        item.propertyType === 'Residencial' ? 'bg-purple-100 text-purple-800' : 
+                        item.propertyType === 'Escritório' ? 'bg-amber-100 text-amber-800' : 
+                        'bg-gray-100 text-gray-800'}`}>
+                      {item.propertyType}
+                    </span>
+                  </td>
+                  <td class="py-3 px-4 text-sm text-gray-700 max-w-xs truncate">{item.buildingCondition}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700 max-w-xs truncate">{item.tenancy}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <div class="flex items-center justify-center border-t border-gray-200 px-4 py-3 sm:px-6">
+        <button class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-none text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+          <Icon name="tabler:plus" class="w-4 h-4 mr-2" />
+          Add row
+        </button>  
+      </div>
+    </div>
+    
+    <!-- Asset Management Industry Table -->
+    <div id="assetmanagement-table" class="bg-white shadow-md border border-gray-200 overflow-hidden rounded-none hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="bg-gray-50 border-b border-gray-200">
+              <th class="w-12 py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:file-text" class="w-4 h-4 mr-1" />
+                  <span>Documento</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:calendar" class="w-4 h-4 mr-1" />
+                  <span>Data</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:folder" class="w-4 h-4 mr-1" />
+                  <span>Tipo de Documento</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:alert-triangle" class="w-4 h-4 mr-1" />
+                  <span>Riscos de Investimento</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:chart-bar" class="w-4 h-4 mr-1" />
+                  <span>Considerações de Mercado</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:star" class="w-4 h-4 mr-1" />
+                  <span>Destaques de Investimento</span>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              assetManagementItems.map((item, index) => (
+                <tr class={`border-b border-gray-200 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} assetmanagement-row hover:bg-gray-100`}>
+                  <td class="py-3 px-4 text-sm text-gray-700 font-medium">{item.id}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700">
+                    <div class="flex items-center gap-2">
+                      <Icon name="tabler:file-text" class="w-5 h-5 text-gray-400" />
+                      <span>{item.document}</span>
+                    </div>
+                  </td>
+                  <td class="py-3 px-4 text-sm text-gray-700">{item.date}</td>
+                  <td class="py-3 px-4">
+                    <span class={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-none 
+                      ${item.documentType === 'Financeiro' ? 'bg-blue-100 text-blue-800' : 
+                        item.documentType === 'Materiais de Mercado' ? 'bg-green-100 text-green-800' : 
+                        item.documentType === 'Produto' ? 'bg-amber-100 text-amber-800' : 
+                        item.documentType === 'Cliente' ? 'bg-purple-100 text-purple-800' : 
+                        item.documentType === 'Mercado' ? 'bg-pink-100 text-pink-800' : 
+                        'bg-gray-100 text-gray-800'}`}>
+                      {item.documentType}
+                    </span>
+                  </td>
+                  <td class="py-3 px-4 text-sm text-gray-700 max-w-xs truncate">{item.investmentRisks}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700 max-w-xs truncate">{item.marketConsiderations}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700 max-w-xs truncate">{item.investmentHighlights}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <div class="flex items-center justify-center border-t border-gray-200 px-4 py-3 sm:px-6">
+        <button class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-none text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+          <Icon name="tabler:plus" class="w-4 h-4 mr-2" />
+          Add row
+        </button>  
+      </div>
+    </div>
+    
+    <!-- Default Table - For other industries -->
+    <div id="default-table" class="bg-white shadow-md border border-gray-200 overflow-hidden rounded-none hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full">
+          <thead>
+            <tr class="bg-gray-50 border-b border-gray-200">
+              <th class="w-12 py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:file-text" class="w-4 h-4 mr-1" />
+                  <span>Documento</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:calendar" class="w-4 h-4 mr-1" />
+                  <span>Data</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:folder" class="w-4 h-4 mr-1" />
+                  <span>Tipo de Documento</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:alert-triangle" class="w-4 h-4 mr-1" />
+                  <span>Riscos de Investimento</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:chart-bar" class="w-4 h-4 mr-1" />
+                  <span>Considerações de Mercado</span>
+                </div>
+              </th>
+              <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <div class="inline-flex items-center">
+                  <Icon name="tabler:star" class="w-4 h-4 mr-1" />
+                  <span>Destaques de Investimento</span>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              mockItems.map((item, index) => (
+                <tr 
+                  class={`border-b border-gray-200 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} matrix-row hover:bg-gray-100`} 
+                  data-document-type={item.documentType}
+                >
+                  <td class="py-3 px-4 text-sm text-gray-700 font-medium">{index + 1}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700">
+                    <div class="flex items-center gap-2">
+                      <Icon name="tabler:file-text" class="w-5 h-5 text-gray-400" />
+                      <span>{item.document}</span>
+                    </div>
+                  </td>
+                  <td class="py-3 px-4 text-sm text-gray-700">{item.date}</td>
+                  <td class="py-3 px-4">
+                    <span class={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-none 
+                      ${item.documentType === 'Financials' ? 'bg-purple-100 text-purple-800' : 
+                        item.documentType === 'Market Materials' ? 'bg-purple-100 text-purple-800' : 
+                        item.documentType === 'Product' ? 'bg-amber-100 text-amber-800' : 
+                        item.documentType === 'Customer' ? 'bg-amber-100 text-amber-800' : 
+                        'bg-green-100 text-green-800'}`}>
+                      {item.documentType}
+                    </span>
+                  </td>
+                  <td class="py-3 px-4 text-sm text-gray-700 max-w-xs truncate">{item.investmentRisks}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700 max-w-xs truncate">{item.marketConsiderations}</td>
+                  <td class="py-3 px-4 text-sm text-gray-700 max-w-xs truncate">{item.investmentHighlights}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+      <div class="flex items-center justify-center border-t border-gray-200 px-4 py-3 sm:px-6">
+        <button class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-none text-sm font-medium text-gray-700 bg-white hover:bg-gray-50">
+          <Icon name="tabler:plus" class="w-4 h-4 mr-2" />
+          Add row
+        </button>  
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Client-side JavaScript for interactivity
+  document.addEventListener('DOMContentLoaded', () => {
+    const useCaseButtons = document.querySelectorAll('.use-case-btn');
+    const legalTable = document.getElementById('legal-table');
+    const creditTable = document.getElementById('credit-table');
+    const advisoryTable = document.getElementById('advisory-table');
+    const corporateTable = document.getElementById('corporate-table');
+    const consultingTable = document.getElementById('consulting-table');
+    const realEstateTable = document.getElementById('realestate-table');
+    const assetManagementTable = document.getElementById('assetmanagement-table');
+    const defaultTable = document.getElementById('default-table');
+    const commandText = document.getElementById('command-text');
+    
+    // Command text for each industry
+    const industryCommands = {
+      'legal': "Estamos negociando uma nova aquisição para a Ocean Corp. Quais foram as principais alavancas de negociação em negócios semelhantes no passado?",
+      'credit': "Quais são os termos típicos para negócios que concordamos com o Oak Rock no passado?",
+      'advisory': "Estou me preparando para uma reunião com a American Airlines. Diga-me o que eu preciso saber, principalmente atualizações e desempenho em relação aos concorrentes.",
+      'corporate': "Precisamos analisar todos os contratos corporativos atuais. Mostre-me os detalhes, especialmente os prazos de pagamento.",
+      'consulting': "Estou pesquisando sobre a indústria de bebidas. Sintetize as principais conclusões sobre este mercado.",
+      'realestate': "Como cada propriedade mudou de trimestre para trimestre? Faça uma avaliação sobre cada propriedade ao longo do tempo.",
+      'assetmanagement': "Amanhã temos uma reunião com a equipe de gestão do Projeto Alpha. Faça uma agenda de due diligence com base na sua avaliação destes documentos."
+    };
+    
+    // Set active state for buttons - ensure only one button is active
+    const setActiveButton = (activeButton) => {
+      // First remove active state from all buttons
+      useCaseButtons.forEach(btn => {
+        btn.classList.remove('bg-blue-700', 'text-white', 'border-blue-700');
+        btn.classList.add('bg-gray-300', 'text-gray-700', 'border-gray-300');
+      });
+      
+      // Then add active state only to the clicked button
+      activeButton.classList.remove('bg-gray-300', 'text-gray-700', 'border-gray-300');
+      activeButton.classList.add('bg-blue-700', 'text-white', 'border-blue-700');
+    };
+    
+    // Switch between tables based on selected industry
+    const switchTable = (useCaseId) => {
+      if (!legalTable || !creditTable || !advisoryTable || !corporateTable || !consultingTable || !realEstateTable || !assetManagementTable || !defaultTable) return;
+      
+      // Hide all tables first
+      legalTable.classList.add('hidden');
+      creditTable.classList.add('hidden');
+      advisoryTable.classList.add('hidden');
+      corporateTable.classList.add('hidden');
+      consultingTable.classList.add('hidden');
+      realEstateTable.classList.add('hidden');
+      assetManagementTable.classList.add('hidden');
+      defaultTable.classList.add('hidden');
+      
+      // Show the appropriate table
+      if (useCaseId === 'legal') {
+        legalTable.classList.remove('hidden');
+      } else if (useCaseId === 'credit') {
+        creditTable.classList.remove('hidden');
+      } else if (useCaseId === 'advisory') {
+        advisoryTable.classList.remove('hidden');
+      } else if (useCaseId === 'corporate') {
+        corporateTable.classList.remove('hidden');
+      } else if (useCaseId === 'consulting') {
+        consultingTable.classList.remove('hidden');
+      } else if (useCaseId === 'realestate') {
+        realEstateTable.classList.remove('hidden');
+      } else if (useCaseId === 'assetmanagement') {
+        assetManagementTable.classList.remove('hidden');
+      } else if (defaultTable) {
+        defaultTable.classList.remove('hidden');
+        
+        // Filter the default table rows based on industry
+        const tableRows = document.querySelectorAll('.matrix-row');
+        const useCaseToTypes = {
+          'legal': ['Financials'],
+          'credit': ['Financials'],
+          'advisory': ['Market Materials', 'Market'],
+          'corporate': ['Financials', 'Market Materials'],
+          'consulting': ['Product', 'Customer'],
+          'realestate': ['Market', 'Product'],
+          'assetmanagement': ['Financials', 'Market']
+        };
+        
+        const relevantTypes = useCaseToTypes[useCaseId];
+        tableRows.forEach(row => {
+          const docType = row.getAttribute('data-document-type');
+          if (relevantTypes && relevantTypes.includes(docType)) {
+            row.classList.remove('hidden');
+          } else {
+            row.classList.add('hidden');
+          }
+        });
+      }
+      
+      // Update command text based on industry
+      if (commandText && industryCommands[useCaseId]) {
+        commandText.textContent = industryCommands[useCaseId];
+      }
+    };
+    
+    // Set initial state (legal selected)
+    if (useCaseButtons.length > 0) {
+      // Find the legal button by data-id
+      const legalButton = Array.from(useCaseButtons).find(btn => 
+        btn.getAttribute('data-id') === 'legal'
+      );
+      
+      if (legalButton) {
+        // Set active styling for legal button
+        setActiveButton(legalButton);
+        // Initial setup for legal
+        switchTable('legal');
+      }
+    }
+    
+    // Handle button clicks - ensure only one button can be selected
+    useCaseButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const useCaseId = btn.getAttribute('data-id');
+        setActiveButton(btn);
+        switchTable(useCaseId);
+      });
+    });
+  });
+</script> 

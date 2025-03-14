@@ -1,0 +1,72 @@
+---
+import { Icon } from 'astro-icon/components';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+
+const apiFeatures = [
+  {
+    title: 'Suporte a múltiplos modelos',
+    description: 'Uma integração de API dá acesso aos modelos mais recentes da OpenAI, Anthropic, Google e mais',
+    icon: 'tabler:api'
+  },
+  {
+    title: 'Totalmente interoperável e multimodal',
+    description: 'Suporte direto para endpoints comuns como completions de texto/chat, imagens e bibliotecas populares como LangChain',
+    icon: 'tabler:arrows-exchange'
+  },
+  {
+    title: 'Seguro e com alta performance',
+    description: 'Concentre-se em criar seus aplicativos; a NP Labs cuida do desempenho, custo e registro de segurança automaticamente',
+    icon: 'tabler:shield-lock'
+  }
+];
+
+const codeExample = `POST
+/v0/copilots/sendMessage
+$ curl -X POST https://api.nplabs.ai/api/v0/copilots/sendMessage
+>         -H "Authorization: Bearer <apiKey>" \\
+>         -H "Content-Type: application/json" \\
+>         -d '{
+>             "message": "Temos suporte para importação do Hubspot?",
+>             "userEmail": "marcelo@empresa.com.br",
+> }'`;
+---
+
+<section class="py-16 md:py-20 bg-black text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex mb-12">
+      <div class="text-gray-500 pt-1">[</div>
+      <div class="text-sm font-semibold tracking-wider ml-5 mr-16 pt-1 text-gray-500">API & DESENVOLVIMENTO</div>
+    </div>
+    
+    <div class="text-3xl font-bold mb-12 max-w-3xl uppercase text-white">
+      CRIE APLICAÇÕES COM IA USANDO NOSSA API FLEXÍVEL
+    </div>
+    
+    <div class="text-gray-400 max-w-3xl mb-16">
+      A API REST simples da NP Labs permite que desenvolvedores criem e implantem aplicativos sem problemas. Descubra nossa documentação.
+    </div>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div class="border border-white/10 p-8 bg-black/30">
+        <pre class="font-mono text-sm text-gray-300 overflow-x-auto">{codeExample}</pre>
+      </div>
+      
+      <div class="space-y-8">
+        {apiFeatures.map((feature) => (
+          <div class="flex">
+            <div class="flex-shrink-0 mr-4">
+              <div class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center">
+                <Icon name={feature.icon} class="w-6 h-6 text-gray-400" />
+              </div>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-white mb-2">{feature.title}</h3>
+              <p class="text-gray-400">{feature.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section> 

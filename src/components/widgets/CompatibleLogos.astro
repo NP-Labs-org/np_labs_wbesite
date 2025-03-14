@@ -1,0 +1,59 @@
+---
+import { Image } from 'astro:assets';
+
+interface Company {
+  name: string;
+  logo: string;
+  height: number;
+}
+
+const companies = [
+  {
+    name: 'Slack',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Slack_icon_2019.svg',
+    height: 30
+  },
+  {
+    name: 'GSuite',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/5/5b/Google_Suite_Logo.svg',
+    height: 32
+  },
+  {
+    name: 'Microsoft',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg',
+    height: 30
+  },
+  {
+    name: 'Notion',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/e/e9/Notion-logo.svg',
+    height: 32
+  },
+  {
+    name: 'Salesforce',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg',
+    height: 35
+  }
+];
+---
+
+<section class="py-16 md:py-20 bg-black text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex mb-12">
+      <div class="text-gray-500 pt-1">[</div>
+      <div class="text-sm font-semibold tracking-wider ml-5 mr-16 pt-1 text-gray-500">COMPATÍVEL COM</div>
+    </div>
+    <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 md:gap-x-16">
+      {companies.map((company) => (
+        <div class="flex items-center">
+          <img 
+            src={company.logo} 
+            alt={`${company.name} logo`} 
+            height={company.height}
+            class="w-auto opacity-70 hover:opacity-100 transition-opacity duration-300 invert"
+            style={`height: ${company.height}px;`}
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section> 
