@@ -1,27 +1,24 @@
 ---
 import { Icon } from 'astro-icon/components';
-import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import Headline from '~/components/ui/Headline.astro';
-import Image from '~/components/common/Image.astro';
 
 const integrationTypes = [
   {
     title: 'Conectores pré-construídos',
     features: [
-      'Conecte a NP Labs com Slack, GSuite, Notion, Microsoft, Salesforce, Confluence e mais - instantaneamente.',
-      'Sincronize permissões dos sistemas de origem',
-      'Totalmente configurável (nuvem vs. local, etc.)',
-      'Funcionalidade de RAG, busca e chat empresarial desde o primeiro dia'
+      'Conecte a NP Labs instantaneamente com Slack, Google Workspace, Notion, Microsoft 365, Salesforce, Confluence e muito mais.',
+      'Sincronização automática de permissões dos sistemas de origem para máxima segurança.',
+      'Configuração flexível para ambientes em nuvem, híbridos ou on-premise conforme suas políticas de segurança.',
+      'Funcionalidade completa de RAG, busca semântica e assistente de IA desde o primeiro dia de implementação.'
     ],
     icon: 'tabler:puzzle'
   },
   {
     title: 'Conectores de dados personalizados',
     features: [
-      'Muitas empresas têm fontes de dados personalizadas ou proprietárias que desejam conectar aos LLMs. A NP Labs resolve isso.',
-      'Sincronização em tempo real, incluindo permissões',
-      'Suporta todas as funções comuns de arquivo (JSON, XML, CSV...)',
-      'Gerencie pipelines ETL, agendamento e configuração em nossa interface'
+      'Integração perfeita com sistemas proprietários e fontes de dados legadas específicas da sua empresa.',
+      'Sincronização em tempo real com herança de permissões para garantir governança de dados.',
+      'Suporte nativo a todos os formatos comuns de arquivos (JSON, XML, CSV, PDF, bancos de dados relacionais).',
+      'Interface intuitiva para gerenciamento de pipelines ETL, agendamento e configuração avançada.'
     ],
     icon: 'tabler:code'
   }
@@ -30,22 +27,22 @@ const integrationTypes = [
 
 <section class="py-16 md:py-20 bg-black text-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="flex mb-12">
-      <div class="text-gray-500 pt-1">[</div>
+    <div class="flex mb-20">
+      <div class="text-gray-500">[</div>
       <div class="text-sm font-semibold tracking-wider ml-5 mr-16 pt-1 text-gray-500">INTEGRAÇÃO DE DADOS</div>
     </div>
     
     <div class="text-3xl font-bold mb-12 max-w-3xl uppercase text-white">
-      CONECTE OS DADOS DA SUA EMPRESA COM SEGURANÇA
+      CONECTE OS DADOS DA SUA EMPRESA COM SEGURANÇA INIGUALÁVEL
     </div>
     
     <div class="text-gray-400 max-w-3xl mb-16">
-      Nossa integração point & click torna fácil começar
+      Nossa interface intuitiva com conectores pré-configurados permite integração rápida e segura em poucos minutos
     </div>
     
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
       {integrationTypes.map((integrationType) => (
-        <div class="border border-white/10 p-8 hover:border-white/30 transition-colors duration-300">
+        <div class="border border-white/10 p-8 hover:border-white/30 transition-all duration-300 hover:bg-black/30">
           <div class="flex items-center mb-6">
             <Icon name={integrationType.icon} class="w-8 h-8 text-gray-400 mr-4" />
             <h3 class="text-xl font-bold text-white">{integrationType.title}</h3>

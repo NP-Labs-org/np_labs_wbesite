@@ -1,58 +1,62 @@
 ---
-import WidgetWrapper from '../ui/WidgetWrapper.astro';
-import type { CallToAction, Widget } from '~/types';
-import Headline from '~/components/ui/Headline.astro';
-import Button from '~/components/ui/Button.astro';
+import { Icon } from 'astro-icon/components';
 
-interface Props extends Widget {
+interface Props {
   title?: string;
   subtitle?: string;
-  tagline?: string;
-  callToAction?: CallToAction;
-  actions?: string | CallToAction[];
 }
 
 const {
-  title = await Astro.slots.render('title'),
-  subtitle = await Astro.slots.render('subtitle'),
-  tagline = await Astro.slots.render('tagline'),
-  actions = await Astro.slots.render('actions'),
-
-  id,
-  isDark = true,
-  classes = {},
-  bg = await Astro.slots.render('bg'),
+  title = "PRONTO PARA ACELERAR SEUS PROJETOS DE IA?",
+  subtitle = "TRANSFORME A MANEIRA COMO SUA EMPRESA UTILIZA INTELIGÊNCIA ARTIFICIAL COM SOLUÇÕES PERSONALIZADAS E SEGURAS."
 } = Astro.props;
 ---
 
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
-  <div
-    class="max-w-3xl mx-auto text-center p-6 rounded-md shadow-xl border border-white/10 bg-black/30"
-  >
-    <Headline
-      title={title}
-      subtitle={subtitle}
-      tagline={tagline}
-      classes={{
-        container: 'mb-0 md:mb-0',
-        title: 'text-4xl md:text-4xl font-bold tracking-tighter mb-4 font-heading text-white',
-        subtitle: 'text-xl text-gray-400',
-      }}
-    />
-    {
-      actions && (
-        <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 mt-6">
-          {Array.isArray(actions) ? (
-            actions.map((action) => (
-              <div class="flex w-full sm:w-auto">
-                <Button {...(action || {variant: 'hero'})} class="w-full sm:mb-0" />
-              </div>
-            ))
-          ) : (
-            <Fragment set:html={actions} />
-          )}
-        </div>
-      )
-    }
+<section class="relative py-16 md:py-20 bg-black overflow-hidden">
+  <!-- Decorative lines pattern -->
+  <div class="absolute top-0 right-0 w-1/2 h-full">
+    <div class="absolute inset-0">
+      {Array.from({ length: 60 }).map((_, i) => (
+        <div 
+          class="absolute h-40 w-[1px] bg-purple-500/10"
+          style={`
+            left: ${i * 12}px;
+            transform: rotate(30deg);
+            transform-origin: top;
+          `}
+        />
+      ))}
+    </div>
   </div>
-</WidgetWrapper>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex flex-col items-center text-center max-w-3xl mx-auto">
+      <!-- Section Label -->
+      <div class="flex items-center justify-center mb-12">
+        <div class="text-gray-500">[</div>
+        <div class="text-sm font-semibold tracking-wider mx-4 text-gray-500">COMECE AGORA</div>
+        <div class="text-gray-500">]</div>
+      </div>
+
+      <!-- Main Title -->
+      <div class="text-3xl font-bold mb-12 max-w-3xl uppercase text-white">
+        {title}
+      </div>
+
+      <!-- Subtitle -->
+      <div class="text-gray-400 max-w-3xl mb-16 uppercase">
+        {subtitle}
+      </div>
+
+      <!-- Action Button -->
+      <a
+        href="https://calendar.app.google/riPr32fUACSJAWXT7"
+        target="_blank"
+        class="inline-flex items-center justify-center px-12 py-4 text-base font-semibold text-black bg-white hover:scale-105 hover:shadow-lg hover:shadow-emerald-500/20 transition-all duration-300 ease-in-out transform"
+      >
+        <Icon name="tabler:calendar" class="w-5 h-5 mr-2" />
+        FALAR COM O CEO
+      </a>
+    </div>
+  </div>
+</section>

@@ -16,7 +16,7 @@ const {
 }: HeroProps = Astro.props;
 ---
 
-<section class="relative py-16 md:py-20 bg-black text-white not-prose" {...id ? { id } : {}}>
+<section class="relative py-30 md:py-40 bg-black text-white not-prose" {...id ? { id } : {}}>
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
     <slot name="bg">
       {bg ? <Fragment set:html={bg} /> : null}
@@ -24,8 +24,8 @@ const {
   </div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
     <div class="flex mb-20">
-      <div class="text-gray-500 text-2xl font-light">[</div>
-      <div class="text-sm font-semibold tracking-wider ml-5 mr-16 pt-1 text-gray-500">NP LABS AI SOLUTIONS</div>
+      <div class="text-gray-500">[</div>
+      <div class="text-sm font-semibold tracking-wider ml-5 mr-16 pt-1 text-gray-500">NP LABS SOLUÇÕES DE IA</div>
       <div class="flex-1">
         {
           title && (
@@ -42,7 +42,7 @@ const {
       actions && (
         <div class="max-w-3xl mx-auto mt-12">
           <div class="flex items-start border-t border-white/20 py-8">
-            <div class="w-1/3 text-sm text-gray-400">TAKE ACTION</div>
+            <div class="w-1/3 text-sm text-gray-400">DÊ O PRÓXIMO PASSO</div>
             <div class="w-1/3 flex flex-wrap gap-4">
               {Array.isArray(actions) ? (
                 actions.map((action) => (

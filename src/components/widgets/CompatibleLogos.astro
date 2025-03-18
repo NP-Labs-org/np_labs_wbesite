@@ -1,12 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-
-interface Company {
-  name: string;
-  logo: string;
-  height: number;
-}
-
 const companies = [
   {
     name: 'Slack',
@@ -14,12 +6,12 @@ const companies = [
     height: 30
   },
   {
-    name: 'GSuite',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/5/5b/Google_Suite_Logo.svg',
+    name: 'Google Workspace',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Gsuite-logo.png/640px-Gsuite-logo.png',
     height: 32
   },
   {
-    name: 'Microsoft',
+    name: 'Microsoft 365',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg',
     height: 30
   },
@@ -32,24 +24,48 @@ const companies = [
     name: 'Salesforce',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg',
     height: 35
+  },
+  {
+    name: 'SAP',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg',
+    height: 30
+  },
+  {
+    name: 'Jira',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/8/8a/Jira_Logo.svg',
+    height: 32
+  },
+  {
+    name: 'Confluence',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/8/88/Atlassian_Confluence_2017_logo.svg',
+    height: 30
   }
 ];
 ---
 
 <section class="py-16 md:py-20 bg-black text-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="flex mb-12">
-      <div class="text-gray-500 pt-1">[</div>
-      <div class="text-sm font-semibold tracking-wider ml-5 mr-16 pt-1 text-gray-500">COMPATÍVEL COM</div>
+    <div class="flex mb-20">
+      <div class="text-gray-500">[</div>
+      <div class="text-sm font-semibold tracking-wider ml-5 mr-16 pt-1 text-gray-500">INTEGRAÇÕES DISPONÍVEIS</div>
     </div>
-    <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8 md:gap-x-16">
+    
+    <div class="text-3xl font-bold mb-12 max-w-3xl uppercase text-white">
+      CONECTE-SE COM TODOS OS SEUS SISTEMAS ATUAIS
+    </div>
+    
+    <div class="text-gray-400 max-w-3xl mb-12">
+      A NP Labs integra-se perfeitamente com seus sistemas empresariais existentes, preservando todas as permissões e acessos configurados.
+    </div>
+    
+    <div class="flex flex-wrap justify-center items-center gap-x-16 gap-y-10 md:gap-x-20">
       {companies.map((company) => (
-        <div class="flex items-center">
+        <div class="flex items-center group">
           <img 
             src={company.logo} 
             alt={`${company.name} logo`} 
             height={company.height}
-            class="w-auto opacity-70 hover:opacity-100 transition-opacity duration-300 invert"
+            class="w-auto opacity-60 group-hover:opacity-100 transition-all duration-300 invert transform group-hover:scale-110"
             style={`height: ${company.height}px;`}
           />
         </div>

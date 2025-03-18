@@ -1,0 +1,16 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import ShoppingPage from '~/components/shop/ShoppingPage.astro';
+
+const metadata = {
+  title: 'Shop with AI Assistant',
+  description: 'Explore our collection with AI-powered personalized recommendations',
+};
+---
+
+<Layout metadata={metadata}>
+  <ShoppingPage 
+    title="Recommendations for you"
+    storeName="NP Labs Fashion"
+  />
+</Layout> 

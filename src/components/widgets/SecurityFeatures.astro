@@ -1,47 +1,45 @@
 ---
 import { Icon } from 'astro-icon/components';
-import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import Headline from '~/components/ui/Headline.astro';
 
 const securityFeatures = [
   {
-    title: 'Permissões',
-    description: 'Sincronize permissões de todas as fontes de dados, com atualizações em tempo real e controles de acesso granulares.',
+    title: 'Gestão Avançada de Permissões',
+    description: 'Sincronização automática de permissões de todas as fontes de dados, garantindo que cada usuário acesse apenas o que está autorizado a ver.',
     icon: 'tabler:shield-lock',
     details: [
-      'Sincronize permissões de todos os sistemas de origem',
-      'Atualize automaticamente o cache de permissões em tempo real',
-      'Controles de acesso granulares e configuráveis'
+      'Sincronização instantânea de permissões de todos os sistemas corporativos',
+      'Atualização em tempo real do controle de acesso quando permissões mudam na origem',
+      'Controles granulares por usuário, grupo e documento para máxima segurança'
     ]
   },
   {
-    title: 'Redação Automática',
-    description: 'Proteção automática de dados sensíveis, substituindo informações confidenciais por espaços reservados antes de processá-las.',
+    title: 'Redação Inteligente de Dados Sensíveis',
+    description: 'Sistema avançado de detecção e proteção de informações confidenciais, garantindo que dados sensíveis nunca sejam expostos ou processados indevidamente.',
     icon: 'tabler:eye-off',
     details: [
-      'Previna vazamento de dados pessoais e financeiros',
-      'Proteja segredos, chaves de API e credenciais',
-      'Mantenha-se em conformidade com regulamentações'
+      'Proteção automática de dados pessoais, financeiros e estratégicos',
+      'Identificação e mascaramento de credenciais, chaves de API e segredos corporativos',
+      'Conformidade garantida com LGPD, GDPR e outras regulamentações globais'
     ]
   },
   {
-    title: 'Auditoria Completa',
-    description: 'Registro completo de todas as ações de IA em sua empresa, incluindo prompts, dados e respostas.',
+    title: 'Auditoria e Rastreabilidade Total',
+    description: 'Registro completo e transparente de todas as interações, consultas e respostas da IA em sua organização para análise e conformidade.',
     icon: 'tabler:report-analytics',
     details: [
-      'Mantenha-se em conformidade e seguro',
-      'Analise o uso organizacional de modelos de IA',
-      'Integra-se com ferramentas de monitoramento populares'
+      'Trilhas de auditoria detalhadas para todas as ações de IA na empresa',
+      'Dashboards analíticos para monitoramento de uso e otimização de recursos',
+      'Integração nativa com ferramentas de monitoramento empresarial existentes'
     ]
   },
   {
-    title: 'Conformidade',
-    description: 'Infraestrutura totalmente compatível com as principais normas de segurança e privacidade de dados.',
+    title: 'Conformidade Empresarial e Certificações',
+    description: 'Infraestrutura certificada e validada segundo os mais rigorosos padrões internacionais de segurança de dados e privacidade.',
     icon: 'tabler:certificate',
     details: [
-      'SOC 2 + GDPR + LGPD compliant',
-      'Opções de nuvem e on-premise',
-      'Aplicação de políticas de uso aceitável'
+      'Certificações SOC 2 [em breve]',
+      'Flexibilidade de implementação em nuvem, híbrida ou totalmente on-premise',
+      'Políticas configuráveis de uso aceitável e prevenção de uso indevido de IA'
     ]
   }
 ];
@@ -49,22 +47,22 @@ const securityFeatures = [
 
 <section class="py-16 md:py-20 bg-black text-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="flex mb-12">
-      <div class="text-gray-500 pt-1">[</div>
+    <div class="flex mb-20">
+      <div class="text-gray-500">[</div>
       <div class="text-sm font-semibold tracking-wider ml-5 mr-16 pt-1 text-gray-500">SEGURANÇA E CONFORMIDADE</div>
     </div>
     
     <div class="text-3xl font-bold mb-12 max-w-3xl uppercase text-white">
-      IMPLANTE INTELIGÊNCIA ARTIFICIAL COM TOTAL SEGURANÇA E CONFORMIDADE
+      IMPLANTE INTELIGÊNCIA ARTIFICIAL COM SEGURANÇA EMPRESARIAL INQUESTIONÁVEL
     </div>
     
     <div class="text-gray-400 max-w-3xl mb-16">
-      A NP Labs facilita a herança e sincronização de permissões, auditoria de acesso a dados e proteção de informações sensíveis.
+      A NP Labs implementa um sistema de segurança multicamadas que preserva todas as suas políticas de acesso, protege dados sensíveis e garante auditoria completa.
     </div>
     
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
       {securityFeatures.map((feature) => (
-        <div class="border border-white/10 p-8 hover:border-white/30 transition-colors duration-300">
+        <div class="border border-white/10 p-8 hover:border-white/30 transition-all duration-300 hover:bg-black/30">
           <div class="flex items-center mb-6">
             <Icon name={feature.icon} class="w-8 h-8 text-gray-400 mr-4" />
             <h3 class="text-xl font-bold text-white">{feature.title}</h3>
@@ -73,7 +71,7 @@ const securityFeatures = [
           <ul class="space-y-3">
             {feature.details.map((detail) => (
               <li class="flex items-start">
-                <Icon name="tabler:check" class="w-5 h-5 text-green-500 mr-2 mt-1" />
+                <Icon name="tabler:check" class="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />
                 <span class="text-gray-300">{detail}</span>
               </li>
             ))}

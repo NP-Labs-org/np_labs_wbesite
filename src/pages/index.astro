@@ -1,25 +1,22 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import Features from '~/components/widgets/Features.astro';
-import Content from '~/components/widgets/Content.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Achievements from '~/components/widgets/Achievements.astro';
 import MainFeatures from '~/components/widgets/MainFeatures.astro';
 import VectorEffect from '~/components/widgets/VectorEffect.astro';
 import TitleRow from '~/components/widgets/TitleRow.astro';
 
-// Importando novos componentes
+// Importando componentes
 import DataIntegration from '~/components/widgets/DataIntegration.astro';
 import SecurityFeatures from '~/components/widgets/SecurityFeatures.astro';
 import ApiFeatures from '~/components/widgets/ApiFeatures.astro';
-import ClientTestimonial from '~/components/widgets/ClientTestimonial.astro';
 import CompatibleLogos from '~/components/widgets/CompatibleLogos.astro';
 import MockMatrix from '~/components/widgets/MockMatrix.astro';
+import AiIntegrations from '~/components/widgets/AiIntegrations.astro';
 
 const metadata = {
-  title: 'NP Labs',
+  title: 'NP Labs - Soluções de IA Empresarial',
   ignoreTitleTemplate: true,
 };
 ---
@@ -48,82 +45,27 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="subtitle">
-      A NP Labs oferece integração personalizada de IA para qualquer sistema corporativo. Soluções personalizadas, seguras e eficientes que transformam seu fluxo de trabalho e aumentam a produtividade.
+      A NP Labs oferece integração personalizada de IA para qualquer sistema corporativo. Soluções personalizadas, seguras e eficientes que transformam seu fluxo de trabalho e aumentam a produtividade de forma mensurável.
     </Fragment>
   </Hero>
 
   <VectorEffect />
+  <AiIntegrations />
   <TitleRow
     leftTitle="VANTAGENS TECNOLÓGICAS E ADAPTABILIDADE"
     leftSubtitle=""
-    rightText="A NP Labs utiliza ampla experiência no desenvolvimento de sistemas inovadores usando as mais recentes técnicas de design e fabricação digital."
+    rightText="A NP Labs utiliza experiência comprovada no desenvolvimento de sistemas inovadores usando as mais avançadas técnicas de design e integração de IA para resolver problemas reais de negócio."
   />
 
   <Achievements />
   <MainFeatures />
 
-  <!-- Nova seção adaptada do Credal: Agentes personalizados -->
-  <Features
-    title="Agentes de IA personalizados com seus dados, ferramentas e expertise."
-    subtitle="Implante agentes de IA em suas ferramentas e fluxos de trabalho existentes, desbloqueando ROI mensurável através dos seus dados e expertise."
-    items={[
-      {
-        title: 'Integração',
-        description: 'Extraia dados de qualquer fonte',
-        icon: 'tabler:arrows-left-right',
-      },
-      {
-        title: 'Segurança',
-        description: 'Herde e aplique controles de acesso',
-        icon: 'tabler:shield-check',
-      },
-      {
-        title: 'Busca',
-        description: 'Encontre qualquer coisa em seus dados',
-        icon: 'tabler:search',
-      },
-      {
-        title: 'Código',
-        description: 'API flexível e segura',
-        icon: 'tabler:code',
-      },
-      {
-        title: 'Point & click',
-        description: 'Crie co-pilotos de IA para fazer qualquer coisa',
-        icon: 'tabler:click',
-      },
-    ]}
-    columns={3}
-  />
 
   <CompatibleLogos />
   
   <DataIntegration />
   
   <SecurityFeatures />
-  
-  <Content
-    title="A única plataforma RAG empresarial completa"
-    subtitle="A NP Labs é a maneira mais rápida de construir aplicações RAG (Retrieval Augmented Generation) seguras e com controle de acesso em cima dos seus dados. Suporta busca semântica, por palavras-chave ou híbrida."
-    items={[
-      {
-        title: 'Integrações point-and-click para todos os seus sistemas de origem',
-        icon: 'tabler:check',
-      },
-      {
-        title: 'Atualização automática de dados em tempo quase real com permissões integradas',
-        icon: 'tabler:check',
-      },
-      {
-        title: 'Use IA como quiser: chat UI, busca empresarial ou nossa API para desenvolvedores',
-        icon: 'tabler:check',
-      },
-    ]}
-    image={{
-      src: '~/assets/images/hero_image.jpg',
-      alt: 'NP Labs RAG Platform',
-    }}
-  />
   
   <ApiFeatures />
   
@@ -132,43 +74,9 @@ const metadata = {
     subtitle="Selecione um caso de uso para explorar diferentes documentos e insights"
   />
   
-  <ClientTestimonial />
-  
-  <FAQs 
-    title="Perguntas Frequentes"
-    subtitle="Respostas para as dúvidas mais comuns sobre nossos serviços de integração de IA"
-    items={[
-      {
-        title: 'O que é a NP Labs e como ela pode ajudar minha empresa?',
-        description: 'A NP Labs é especializada em integrar soluções de inteligência artificial personalizadas aos sistemas corporativos existentes. Ajudamos empresas a automatizar processos, extrair insights de seus dados e aumentar a produtividade através de agentes de IA personalizados.',
-      },
-      {
-        title: 'Como funciona o processo de integração de IA aos meus sistemas?',
-        description: 'Nosso processo começa com uma análise detalhada dos seus sistemas e necessidades. Em seguida, desenvolvemos conectores personalizados que integram IA aos seus dados e ferramentas de forma segura, respeitando suas políticas de acesso. Implementamos soluções RAG (Retrieval Augmented Generation) que permitem que a IA entenda e trabalhe com o contexto específico do seu negócio.',
-      },
-      {
-        title: 'Quais medidas de segurança a NP Labs implementa?',
-        description: 'Implementamos uma abordagem multicamada para segurança: sincronização de permissões dos sistemas de origem, redação automática de dados sensíveis, auditoria completa de todas as interações de IA, e conformidade com SOC 2, GDPR e LGPD. Oferecemos também opções de implantação na nuvem ou on-premise conforme suas necessidades de segurança.',
-      },
-      {
-        title: 'A solução da NP Labs é compatível com meus sistemas existentes?',
-        description: 'Sim, desenvolvemos conectores para plataformas populares como Microsoft, Google, Slack, Salesforce e diversos outros. Para sistemas proprietários ou personalizados, criamos conectores específicos que sincronizam dados e permissões em tempo real, garantindo que a IA tenha acesso apenas às informações permitidas.',
-      },
-      {
-        title: 'Quanto tempo leva para implementar uma solução de IA?',
-        description: 'O cronograma varia conforme a complexidade dos seus sistemas e necessidades específicas. Implementações básicas podem ser concluídas em semanas, enquanto projetos mais complexos podem levar alguns meses. Trabalhamos com uma abordagem iterativa, entregando valor incremental ao longo do projeto.',
-      },
-      {
-        title: 'Como começar com a NP Labs?',
-        description: 'O primeiro passo é agendar uma demonstração com nossa equipe. Nessa conversa inicial, entenderemos seus objetivos e desafios específicos, apresentaremos nossas soluções e elaboraremos um plano personalizado para sua empresa. Entre em contato através do botão "Solicite uma Demo" para agendar sua apresentação.',
-      },
-    ]}
-    columns={2}
-  />
-  
   <CallToAction
     title="Pronto para transformar sua empresa com IA?"
-    subtitle="A NP Labs oferece tudo o que você precisa para potencializar seu negócio usando inteligência artificial de forma segura."
+    subtitle="A NP Labs oferece a tecnologia mais avançada para potencializar seu negócio usando inteligência artificial de forma segura, escalável e com retorno comprovado."
     actions={[
       {
         variant: 'hero',

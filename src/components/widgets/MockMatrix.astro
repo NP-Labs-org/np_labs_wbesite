@@ -41,7 +41,7 @@ const commandTexts = {
       {bg ? <Fragment set:html={bg} /> : null}
     </slot>
   </div>
-  <div class:list={["relative max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16 lg:py-20 text-default", { dark: isDark }]}>
+  <div class:list={["relative max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16 lg:py-20 text-white ", { dark: isDark }]}>
     <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline} />
     
     <!-- Industry Selection Buttons -->
@@ -52,8 +52,8 @@ const commandTexts = {
             type="button"
             class={`use-case-btn py-2 px-5 uppercase text-sm tracking-wider font-medium rounded-none transition-colors duration-200 border
               ${useCase.id === 'legal' 
-                ? 'bg-blue-700 text-white border-blue-700' 
-                : 'bg-gray-300 text-gray-700 border-gray-300 hover:bg-blue-500 hover:text-white hover:border-blue-500'
+                ? 'bg-purple-700 text-white border-purple-700' 
+                : 'bg-gray-300 text-gray-700 border-gray-300 hover:bg-purple-500 hover:text-white hover:border-purple-500'
               }`}
             data-id={useCase.id}
           >
@@ -68,7 +68,7 @@ const commandTexts = {
       <!-- Header row with logo and project name -->
       <div class="flex items-center justify-between border-b border-gray-200 p-4">
         <div class="flex items-center space-x-3">
-          <span class="text-blue-600">
+          <span class="text-purple-600">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M21 3H3v18h18V3z"></path>
               <path d="M21 9H3"></path>
@@ -85,7 +85,7 @@ const commandTexts = {
       <div class="p-4 bg-gray-50 border-b border-gray-200">
         <div class="flex items-center justify-between bg-white p-3 rounded-none border border-gray-200">
           <p id="command-text" class="text-sm text-gray-800 font-medium">{commandTexts.legal}</p>
-          <span class="text-blue-600">
+          <span class="text-purple-600">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M11.1978 8.06074L12.2585 7.00013L7.75833 2.5L6.69772 3.56061L9.3866 6.2495L1.75781 6.2495L1.75781 7.74959H9.3866L6.69691 10.4393L7.75763 11.5L11.1974 8.06026L11.1978 8.06074Z" fill="currentColor"></path>
             </svg>
@@ -119,32 +119,32 @@ const commandTexts = {
             <tr class="bg-gray-50 border-b border-gray-200">
               <th class="w-12 py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:file-text" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:file-text" class="w-4 h-4 flex-shrink-0" />
                   <span>Documento</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:currency-dollar" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:currency-dollar" class="w-4 h-4 flex-shrink-0" />
                   <span>Tipo de Contraprestação</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:chart-line" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:chart-line" class="w-4 h-4 flex-shrink-0" />
                   <span>Earn-Out</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:shield" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:shield" class="w-4 h-4 flex-shrink-0" />
                   <span>Indenização</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:arrow-back-up" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:arrow-back-up" class="w-4 h-4 flex-shrink-0" />
                   <span>Rescisão Reversa</span>
                 </div>
               </th>
@@ -156,8 +156,8 @@ const commandTexts = {
                 <tr class={`border-b border-gray-200 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} legal-row hover:bg-gray-100`}>
                   <td class="py-3 px-4 text-sm text-gray-700 font-medium">{item.id}</td>
                   <td class="py-3 px-4 text-sm text-gray-700">
-                    <div class="flex items-center gap-2">
-                      <Icon name="tabler:file-text" class="w-5 h-5 text-gray-400" />
+                    <div class="flex items-center space-x-2">
+                      <Icon name="tabler:file-text" class="w-4 h-4 text-gray-400 flex-shrink-0" />
                       <span>{item.document}</span>
                     </div>
                   </td>
@@ -187,44 +187,44 @@ const commandTexts = {
             <tr class="bg-gray-50 border-b border-gray-200">
               <th class="w-12 py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:file-text" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:file-text" class="w-4 h-4 flex-shrink-0" />
                   <span>Documento</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:building-bank" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:building-bank" class="w-4 h-4 flex-shrink-0" />
                   <span>Facilities</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:percentage" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:percentage" class="w-4 h-4 flex-shrink-0" />
                   <span>Applicable Margin</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:chart-area-line" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:chart-area-line" class="w-4 h-4 flex-shrink-0" />
                   <span>Amortization</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:calendar" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:calendar" class="w-4 h-4 flex-shrink-0" />
                   <span>Term</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:shield" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:shield" class="w-4 h-4 flex-shrink-0" />
                   <span>Call Protection</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:trending-up" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:trending-up" class="w-4 h-4 flex-shrink-0" />
                   <span>Incremental Debt Capacity</span>
                 </div>
               </th>
@@ -236,8 +236,8 @@ const commandTexts = {
                 <tr class={`border-b border-gray-200 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} credit-row hover:bg-gray-100`}>
                   <td class="py-3 px-4 text-sm text-gray-700 font-medium">{item.id}</td>
                   <td class="py-3 px-4 text-sm text-gray-700">
-                    <div class="flex items-center gap-2">
-                      <Icon name="tabler:file-text" class="w-5 h-5 text-gray-400" />
+                    <div class="flex items-center space-x-2">
+                      <Icon name="tabler:file-text" class="w-4 h-4 text-gray-400 flex-shrink-0" />
                       <span>{item.document}</span>
                     </div>
                   </td>
@@ -269,38 +269,38 @@ const commandTexts = {
             <tr class="bg-gray-50 border-b border-gray-200">
               <th class="w-12 py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:file-text" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:file-text" class="w-4 h-4 flex-shrink-0" />
                   <span>Documento</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:calendar" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:calendar" class="w-4 h-4 flex-shrink-0" />
                   <span>Data</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:building" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:building" class="w-4 h-4 flex-shrink-0" />
                   <span>Indústria</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:target" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:target" class="w-4 h-4 flex-shrink-0" />
                   <span>Prioridades Estratégicas</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:arrows-join" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:arrows-join" class="w-4 h-4 flex-shrink-0" />
                   <span>Prioridades de M&A</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:news" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:news" class="w-4 h-4 flex-shrink-0" />
                   <span>Desenvolvimentos Recentes</span>
                 </div>
               </th>
@@ -312,8 +312,8 @@ const commandTexts = {
                 <tr class={`border-b border-gray-200 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} advisory-row hover:bg-gray-100`}>
                   <td class="py-3 px-4 text-sm text-gray-700 font-medium">{item.id}</td>
                   <td class="py-3 px-4 text-sm text-gray-700">
-                    <div class="flex items-center gap-2">
-                      <Icon name="tabler:file-text" class="w-5 h-5 text-gray-400" />
+                    <div class="flex items-center space-x-2">
+                      <Icon name="tabler:file-text" class="w-4 h-4 text-gray-400 flex-shrink-0" />
                       <span>{item.document}</span>
                     </div>
                   </td>
@@ -348,44 +348,44 @@ const commandTexts = {
             <tr class="bg-gray-50 border-b border-gray-200">
               <th class="w-12 py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:file-text" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:file-text" class="w-4 h-4 flex-shrink-0" />
                   <span>Documento</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:building" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:building" class="w-4 h-4 flex-shrink-0" />
                   <span>Cliente</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:currency-real" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:currency-real" class="w-4 h-4 flex-shrink-0" />
                   <span>Valor do Contrato</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:clipboard" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:clipboard" class="w-4 h-4 flex-shrink-0" />
                   <span>Tipo de Serviço</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:calendar-time" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:calendar-time" class="w-4 h-4 flex-shrink-0" />
                   <span>Prazo de Pagamento</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:calendar" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:calendar" class="w-4 h-4 flex-shrink-0" />
                   <span>Data de Início</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:clock" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:clock" class="w-4 h-4 flex-shrink-0" />
                   <span>Duração</span>
                 </div>
               </th>
@@ -397,8 +397,8 @@ const commandTexts = {
                 <tr class={`border-b border-gray-200 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} corporate-row hover:bg-gray-100`}>
                   <td class="py-3 px-4 text-sm text-gray-700 font-medium">{item.id}</td>
                   <td class="py-3 px-4 text-sm text-gray-700">
-                    <div class="flex items-center gap-2">
-                      <Icon name="tabler:file-text" class="w-5 h-5 text-gray-400" />
+                    <div class="flex items-center space-x-2">
+                      <Icon name="tabler:file-text" class="w-4 h-4 text-gray-400 flex-shrink-0" />
                       <span>{item.document}</span>
                     </div>
                   </td>
@@ -437,50 +437,50 @@ const commandTexts = {
             <tr class="bg-gray-50 border-b border-gray-200">
               <th class="w-12 py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:file-text" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:file-text" class="w-4 h-4 flex-shrink-0" />
                   <span>Documento</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:user" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:user" class="w-4 h-4 flex-shrink-0" />
                   <span>Autor</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:calendar" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:calendar" class="w-4 h-4 flex-shrink-0" />
                   <span>Ano do Relatório</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:chart-dots" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:chart-dots" class="w-4 h-4 flex-shrink-0" />
                   <span>Tendências da Indústria</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:rocket" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:rocket" class="w-4 h-4 flex-shrink-0" />
                   <span>Impulsionadores</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:chart-grid-dots" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:chart-grid-dots" class="w-4 h-4 flex-shrink-0" />
                   <span>Dinâmica Competitiva</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:trending-up" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:trending-up" class="w-4 h-4 flex-shrink-0" />
                   <span>Crescimento Projetado</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:receipt" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:receipt" class="w-4 h-4 flex-shrink-0" />
                   <span>Destaques de Preços</span>
                 </div>
               </th>
@@ -492,8 +492,8 @@ const commandTexts = {
                 <tr class={`border-b border-gray-200 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} consulting-row hover:bg-gray-100`}>
                   <td class="py-3 px-4 text-sm text-gray-700 font-medium">{item.id}</td>
                   <td class="py-3 px-4 text-sm text-gray-700">
-                    <div class="flex items-center gap-2">
-                      <Icon name="tabler:file-text" class="w-5 h-5 text-gray-400" />
+                    <div class="flex items-center space-x-2">
+                      <Icon name="tabler:file-text" class="w-4 h-4 text-gray-400 flex-shrink-0" />
                       <span>{item.document}</span>
                     </div>
                   </td>
@@ -526,50 +526,50 @@ const commandTexts = {
             <tr class="bg-gray-50 border-b border-gray-200">
               <th class="w-12 py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:file-text" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:file-text" class="w-4 h-4 flex-shrink-0" />
                   <span>Documento</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:calendar-stats" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:calendar-stats" class="w-4 h-4 flex-shrink-0" />
                   <span>Trimestre</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:building-community" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:building-community" class="w-4 h-4 flex-shrink-0" />
                   <span>Cidade</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:ruler-2" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:ruler-2" class="w-4 h-4 flex-shrink-0" />
                   <span>Tamanho da Propriedade</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:currency-real" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:currency-real" class="w-4 h-4 flex-shrink-0" />
                   <span>Valor de Mercado</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:home" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:home" class="w-4 h-4 flex-shrink-0" />
                   <span>Tipo</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:building" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:building" class="w-4 h-4 flex-shrink-0" />
                   <span>Condição do Imóvel</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:users" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:users" class="w-4 h-4 flex-shrink-0" />
                   <span>Inquilinos</span>
                 </div>
               </th>
@@ -581,8 +581,8 @@ const commandTexts = {
                 <tr class={`border-b border-gray-200 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} realestate-row hover:bg-gray-100`}>
                   <td class="py-3 px-4 text-sm text-gray-700 font-medium">{item.id}</td>
                   <td class="py-3 px-4 text-sm text-gray-700">
-                    <div class="flex items-center gap-2">
-                      <Icon name="tabler:file-text" class="w-5 h-5 text-gray-400" />
+                    <div class="flex items-center space-x-2">
+                      <Icon name="tabler:file-text" class="w-4 h-4 text-gray-400 flex-shrink-0" />
                       <span>{item.document}</span>
                     </div>
                   </td>
@@ -592,7 +592,7 @@ const commandTexts = {
                   <td class="py-3 px-4 text-sm text-gray-700">{item.marketValue}</td>
                   <td class="py-3 px-4">
                     <span class={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-none 
-                      ${item.propertyType === 'Comercial' ? 'bg-blue-100 text-blue-800' : 
+                      ${item.propertyType === 'Comercial' ? 'bg-purple-100 text-purple-800' : 
                         item.propertyType === 'Varejo' ? 'bg-green-100 text-green-800' : 
                         item.propertyType === 'Residencial' ? 'bg-purple-100 text-purple-800' : 
                         item.propertyType === 'Escritório' ? 'bg-amber-100 text-amber-800' : 
@@ -624,38 +624,38 @@ const commandTexts = {
             <tr class="bg-gray-50 border-b border-gray-200">
               <th class="w-12 py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:file-text" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:file-text" class="w-4 h-4 flex-shrink-0" />
                   <span>Documento</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:calendar" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:calendar" class="w-4 h-4 flex-shrink-0" />
                   <span>Data</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:folder" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:folder" class="w-4 h-4 flex-shrink-0" />
                   <span>Tipo de Documento</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:alert-triangle" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:alert-triangle" class="w-4 h-4 flex-shrink-0" />
                   <span>Riscos de Investimento</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:chart-bar" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:chart-bar" class="w-4 h-4 flex-shrink-0" />
                   <span>Considerações de Mercado</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:star" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:star" class="w-4 h-4 flex-shrink-0" />
                   <span>Destaques de Investimento</span>
                 </div>
               </th>
@@ -667,15 +667,15 @@ const commandTexts = {
                 <tr class={`border-b border-gray-200 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} assetmanagement-row hover:bg-gray-100`}>
                   <td class="py-3 px-4 text-sm text-gray-700 font-medium">{item.id}</td>
                   <td class="py-3 px-4 text-sm text-gray-700">
-                    <div class="flex items-center gap-2">
-                      <Icon name="tabler:file-text" class="w-5 h-5 text-gray-400" />
+                    <div class="flex items-center space-x-2">
+                      <Icon name="tabler:file-text" class="w-4 h-4 text-gray-400 flex-shrink-0" />
                       <span>{item.document}</span>
                     </div>
                   </td>
                   <td class="py-3 px-4 text-sm text-gray-700">{item.date}</td>
                   <td class="py-3 px-4">
                     <span class={`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-none 
-                      ${item.documentType === 'Financeiro' ? 'bg-blue-100 text-blue-800' : 
+                      ${item.documentType === 'Financeiro' ? 'bg-purple-100 text-purple-800' : 
                         item.documentType === 'Materiais de Mercado' ? 'bg-green-100 text-green-800' : 
                         item.documentType === 'Produto' ? 'bg-amber-100 text-amber-800' : 
                         item.documentType === 'Cliente' ? 'bg-purple-100 text-purple-800' : 
@@ -709,38 +709,38 @@ const commandTexts = {
             <tr class="bg-gray-50 border-b border-gray-200">
               <th class="w-12 py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:file-text" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:file-text" class="w-4 h-4 flex-shrink-0" />
                   <span>Documento</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:calendar" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:calendar" class="w-4 h-4 flex-shrink-0" />
                   <span>Data</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:folder" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:folder" class="w-4 h-4 flex-shrink-0" />
                   <span>Tipo de Documento</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:alert-triangle" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:alert-triangle" class="w-4 h-4 flex-shrink-0" />
                   <span>Riscos de Investimento</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:chart-bar" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:chart-bar" class="w-4 h-4 flex-shrink-0" />
                   <span>Considerações de Mercado</span>
                 </div>
               </th>
               <th class="py-3 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                <div class="inline-flex items-center">
-                  <Icon name="tabler:star" class="w-4 h-4 mr-1" />
+                <div class="inline-flex items-center space-x-1">
+                  <Icon name="tabler:star" class="w-4 h-4 flex-shrink-0" />
                   <span>Destaques de Investimento</span>
                 </div>
               </th>
@@ -755,8 +755,8 @@ const commandTexts = {
                 >
                   <td class="py-3 px-4 text-sm text-gray-700 font-medium">{index + 1}</td>
                   <td class="py-3 px-4 text-sm text-gray-700">
-                    <div class="flex items-center gap-2">
-                      <Icon name="tabler:file-text" class="w-5 h-5 text-gray-400" />
+                    <div class="flex items-center space-x-2">
+                      <Icon name="tabler:file-text" class="w-4 h-4 text-gray-400 flex-shrink-0" />
                       <span>{item.document}</span>
                     </div>
                   </td>
@@ -819,13 +819,13 @@ const commandTexts = {
     const setActiveButton = (activeButton) => {
       // First remove active state from all buttons
       useCaseButtons.forEach(btn => {
-        btn.classList.remove('bg-blue-700', 'text-white', 'border-blue-700');
+        btn.classList.remove('bg-purple-700', 'text-white', 'border-purple-700');
         btn.classList.add('bg-gray-300', 'text-gray-700', 'border-gray-300');
       });
       
       // Then add active state only to the clicked button
       activeButton.classList.remove('bg-gray-300', 'text-gray-700', 'border-gray-300');
-      activeButton.classList.add('bg-blue-700', 'text-white', 'border-blue-700');
+      activeButton.classList.add('bg-purple-700', 'text-white', 'border-purple-700');
     };
     
     // Switch between tables based on selected industry
