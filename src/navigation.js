@@ -82,13 +82,13 @@ export const footerData = {
     {
       title: 'Empresa',
       links: [
-        { text: 'Sobre nós', href: getPermalink('/about') },
+        { text: 'Sobre nós', href: getPermalink('/about/team') },
       ],
     },
   ],
   secondaryLinks: [
-    { text: 'Termos', href: getPermalink('/terms') },
-    { text: 'Política de Privacidade', href: getPermalink('/privacy') },
+    { text: 'Termos', href: getPermalink('#') },
+    { text: 'Política de Privacidade', href: getPermalink('#') },
   ],
   socialLinks: [
     { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: '#' },

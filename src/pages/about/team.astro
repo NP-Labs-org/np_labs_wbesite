@@ -9,20 +9,20 @@ const teamMembers = [
   {
     name: 'João Victor Farrulla Darze',
     role: 'Co-Founder and CEO',
-    bio: 'João Victor Farrulla Darze is an economist and AI researcher  with a passion for building products that help people live better lives. Has a Masters in Computer Science and Bachelor in Economics from PUC-Rio. He has made several data science and AI projects in multiple industries.',
+    bio: 'João é pesquisador e engenheiro de IA, com bacharelado em Economia e mestrado em Ciência da Computação pela PUC-Rio. Atuou em diversas iniciativas de inovação na interface entre academia e mercado, colaborando com empresas como Globo, Americanas e Petrobras. Além disso, foi um dos primeiros funcionários na área de estratégia e dados de uma startup investida em Cingapura.',
     image: '/src/assets/images/team/farrulla.jpeg'
   },
   {
     name: 'Bernardo Bulgarelli',
     role: 'Co-Founder and CTO',
-    bio: 'Bernardo Bulgarelli is a software engineer with a passion for building products that help people live better lives. Has a Bachelor in Computer Science from PUC-Rio. He has made several data science and AI projects in multiple industries.',
-    image: '/src/assets/images/team/bernardo.jpeg'
+    bio: 'Bernardo é pesquisador e engenheiro de software com foco em Ciência de Dados. Bacharel em Ciência da Computação pela PUC-Rio, atualmente cursa o mestrado na mesma instituição, onde sua pesquisa se concentra na especificação de requisitos para sistemas que utilizam grandes modelos de linguagem (LLMs). Participou de projetos de Pesquisa e Desenvolvimento na PUC-Rio, colaborando com empresas como Americanas, Semantix e Exacta. Além disso, possui experiência no mercado como engenheiro de IA, DevOps e desenvolvedor back-end, atuando na concepção e implementação de soluções que utilizam IA.',
+    image: '/src/assets/images/team/bernardo_b.jpeg'
   },
   {
     name: 'Miguel Angelus',
     role: 'Co-Founder and Engineer',
-    bio: 'Miguel Angelus is a software engineer with a passion for building products that help people live better lives. Has a Bachelor in Computer Science from PUC-Rio. He has made several data science and AI projects in multiple industries.',
-    image: '/src/assets/images/team/miguel.jpeg'
+    bio: 'Miguel Angelus Araruna de Aquino é estudante de Ciência da Computação na PUC-Rio, com experiência em desenvolvimento de software, ciência de dados e metodologias ágeis. Atuou como estagiário de pesquisa na Americanas S.A. e como pesquisador científico na ExACTa PUC-Rio. Além disso, trabalhou como engenheiro de dados na Quantum e foi Software Developer Intern no Banco BOCOM BBM.',
+    image: '/src/assets/images/team/miguel_angelus.jpeg'
   }
 ];
 ---
@@ -33,20 +33,19 @@ const teamMembers = [
       <div class="mb-12">
         <div class="flex mb-8">
           <div class="text-gray-500">[</div>
-          <div class="text-sm font-semibold tracking-wider ml-5 mr-16 pt-1 text-gray-500 uppercase">OUR TEAM</div>
+          <div class="text-sm font-semibold tracking-wider ml-5 mr-16 pt-1 text-gray-500 uppercase">Nossa equipe</div>
         </div>
         <h1 class="text-3xl md:text-4xl font-bold leading-tight tracking-tighter mb-4 font-heading uppercase">
-          Meet the team
+          Conheça a nossa equipe
         </h1>
         <p class="text-gray-400 max-w-3xl">
-          Our team of AI experts, engineers, and business strategists are committed to delivering cutting-edge solutions that transform your operations.
+          Nossa equipe de especialistas em IA, engenheiros e estratégistas de negócios está comprometida em entregar soluções de ponta que transformam suas operações.
         </p>
       </div>
 
       <div class="max-w-5xl mx-auto">
         {teamMembers.map((member) => (
           <div class="border border-white/10 bg-black/30 overflow-hidden mb-8 group hover:border-white/30 transition-all duration-300 relative">
-            <div class="absolute top-0 right-0 w-2 h-2 bg-gray-500 group-hover:bg-white transition-colors duration-300"></div>
             <div class="md:flex">
               <div class="p-8 md:flex-1 border-b md:border-b-0 md:border-r border-white/10">
                 <h2 class="text-xl md:text-2xl font-bold text-white mb-2 uppercase">
@@ -69,7 +68,7 @@ const teamMembers = [
               </div>
             </div>
             <div class="px-8 py-4 border-t border-white/10">
-              <div class="text-xs text-gray-500 uppercase tracking-wider">Team member since 2023</div>
+              <div class="text-xs text-gray-500 uppercase tracking-wider">Team member since the very beginnig</div>
             </div>
           </div>
         ))}
