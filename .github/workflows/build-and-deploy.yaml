@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BUCKET: site.np-labs.org
-      DIST: build
+      DIST: dist
       REGION: us-east-2
       DIST_ID: E3USJRUQN0MVNO
     steps:
