@@ -9,11 +9,11 @@ jobs:
   build-and-deploy:
     name: Build and Deploy
     runs-on: ubuntu-latest
-      env:
-        BUCKET_NAME: site.np-labs.org
-        DIST: build
-        REGION: us-east-2
-        DIST_ID: E3USJRUQN0MVNO
+    env:
+      BUCKET_NAME: site.np-labs.org
+      DIST: build
+      REGION: us-east-2
+      DIST_ID: E3USJRUQN0MVNO
 
       steps:
       - name: Checkout
