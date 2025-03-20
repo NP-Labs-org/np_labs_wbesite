@@ -35,7 +35,7 @@ jobs:
 
       - name: Copy files to the production website with the AWS CLI
         run: |
-          aws s3 cp --delete ${{ env.DIST }} s3://${{ env.BUCKET_NAME }}
+          aws s3 sync --delete ${{ env.DIST }} s3://${{ env.BUCKET_NAME }}
 
       - name: Invalidate Cloudfront Distribution
         run: |
