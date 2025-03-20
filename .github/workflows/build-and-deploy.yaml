@@ -10,7 +10,7 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     env:
-      BUCKET_NAME: np-labs.org
+      BUCKET: site.np-labs.org
       DIST: build
       REGION: us-east-2
       DIST_ID: E3USJRUQN0MVNO
@@ -35,7 +35,7 @@ jobs:
 
       - name: Copy files to the production website with the AWS CLI
         run: |
-          aws s3 sync --delete ${{ env.DIST }} s3://${{ env.BUCKET_NAME }}
+          aws s3 sync --delete ${{ env.DIST }} s3://${{ env.BUCKET }}
 
       - name: Invalidate Cloudfront Distribution
         run: |
