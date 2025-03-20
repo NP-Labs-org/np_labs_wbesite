@@ -1,8 +1,8 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import Hero from '~/components/widgets/Hero.astro';
+import SystemCapabilities from '~/components/widgets/SystemCapabilities.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-import Achievements from '~/components/widgets/Achievements.astro';
 import MainFeatures from '~/components/widgets/MainFeatures.astro';
 import VectorEffect from '~/components/widgets/VectorEffect.astro';
 import TitleRow from '~/components/widgets/TitleRow.astro';
@@ -49,6 +49,8 @@ const metadata = {
     </Fragment>
   </Hero>
 
+  <SystemCapabilities />
+  
   <VectorEffect />
   <AiIntegrations />
   <TitleRow
@@ -57,7 +59,6 @@ const metadata = {
     rightText="A NP Labs utiliza experiência comprovada no desenvolvimento de sistemas inovadores usando as mais avançadas técnicas de design e integração de IA para resolver problemas reais de negócio."
   />
 
-  <Achievements />
   <MainFeatures />
 
 

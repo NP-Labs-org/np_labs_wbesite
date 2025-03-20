@@ -2,57 +2,57 @@ import { getPermalink, getBlogPermalink } from './utils/permalinks';
 
 export const headerData = {
   links: [
+    // {
+    //   text: 'Soluções',
+    //   links: [
+    //     {
+    //       text: 'Chat',
+    //       href: getPermalink('/product/ai-agents'),
+    //     },
+    //     {
+    //       text: 'Matrix AI',
+    //       href: '#matrix',
+    //     },
+    //     {
+    //       text: 'Dev RAG',
+    //       href: getPermalink('/product/dev-rag'),
+    //     },
+    //   ],
+    // },
+    // {
+    //   text: 'Pricing',
+    //   href: getPermalink('/pricing'),
+    // },
     {
-      text: 'Product',
-      links: [
-        {
-          text: 'Self-service AI agents',
-          href: getPermalink('/product/ai-agents'),
-        },
-        {
-          text: 'Workplace search',
-          href: getPermalink('/product/workplace-search'),
-        },
-        {
-          text: 'Dev RAG',
-          href: getPermalink('/product/dev-rag'),
-        },
-      ],
-    },
-    {
-      text: 'Pricing',
-      href: getPermalink('/pricing'),
-    },
-    {
-      text: 'Use Cases',
+      text: 'Casos de uso',
       links: [
         {
           text: 'E-commerce',
           href: getPermalink('/use-cases/e-commerce'),
         },
         {
-          text: 'Engineering',
+          text: 'Engenharia',
           href: getPermalink('/use-cases/engineering'),
         },
         {
-          text: 'HR & People',
+          text: 'RH & Pessoas',
           href: getPermalink('/use-cases/hr-people'),
         },
         {
-          text: 'Communication & PR',
+          text: 'Comunicação & PR',
           href: getPermalink('/use-cases/communication-pr'),
         },
       ],
     },
     {
-      text: 'About',
+      text: 'Sobre nós',
       links: [
+        // {
+        //   text: 'Blog',
+        //   href: getBlogPermalink('/about/blog'),
+        // },
         {
-          text: 'Blog',
-          href: getBlogPermalink('/about/blog'),
-        },
-        {
-          text: 'Team',
+          text: 'Equipe',
           href: getPermalink('/about/team'),
         },
       ],

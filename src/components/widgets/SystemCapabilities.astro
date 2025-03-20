@@ -1,0 +1,71 @@
+---
+import Image from '~/components/common/Image.astro';
+
+interface Feature {
+  title: string;
+  description: string;
+  image: {
+    src: string;
+    alt: string;
+  };
+}
+
+const features: Feature[] = [
+  {
+    title: "BUSCA AVANÇADA",
+    description: "Encontre respostas em todos os sistemas da sua empresa com nossa tecnologia de busca semântica avançada.",
+    image: {
+      src: '~/assets/images/features/chat.png',
+      alt: "Demonstração de busca empresarial"
+    }
+  },
+  {
+    title: "AGENTES DE IA", 
+    description: "Crie assistentes alimentados pelo conhecimento único da sua organização para automatizar tarefas e fornecer suporte imediato.",
+    image: {
+      src: '~/assets/images/features/create_agent.png',
+      alt: "Demonstração de assistente de IA"
+    }
+  },
+  {
+    title: "GERENCIAMENTO DE USO",
+    description: "Gerencie o uso de IA em todos os diversos projetos da sua empresa com nossa tecnologia de gerenciamento de uso.", 
+    image: {
+      src: '~/assets/images/features/billing.png',
+      alt: "Demonstração de gerenciamento de uso"
+    }
+  }
+];
+---
+
+<section class="py-16 md:py-20 bg-black text-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="space-y-20">
+      {features.map((feature, index) => (
+        <div class="flex flex-col md:flex-row items-center gap-8" class:list={[index % 2 === 1 && "md:flex-row-reverse"]}>
+          <div class="w-full md:w-1/2 aspect-video overflow-hidden bg-gray-900 rounded flex items-center justify-center">
+            <Image
+              src={feature.image.src}
+              alt={feature.image.alt}
+              class="w-full h-full object-contain"
+              widths={[400, 768, 1024]}
+              sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, 1024px"
+              loading="lazy"
+              width={800}
+              height={450}
+            />
+          </div>
+          <div class="w-full md:w-1/2 flex flex-col">
+            <div class="flex mb-4">
+              <div class="text-gray-500">[</div>
+              <div class="text-sm font-semibold tracking-wider ml-2 mr-16 text-gray-500">{feature.title}</div>
+            </div>
+            <div class="text-sm text-gray-400">
+              {feature.description}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section> 

@@ -25,7 +25,7 @@ const {
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
     <div class="flex mb-20">
       <div class="text-gray-500">[</div>
-      <div class="text-sm font-semibold tracking-wider ml-5 mr-16 pt-1 text-gray-500">NP LABS SOLUÇÕES DE IA</div>
+      <div class="text-sm font-semibold tracking-wider ml-5 mr-16 text-gray-500">NP LABS SOLUÇÕES DE IA</div>
       <div class="flex-1">
         {
           title && (
@@ -41,7 +41,7 @@ const {
     {
       actions && (
         <div class="max-w-3xl mx-auto mt-12">
-          <div class="flex items-start border-t border-white/20 py-8">
+          <div class="flex items-start py-8">
             <div class="w-1/3 text-sm text-gray-400">DÊ O PRÓXIMO PASSO</div>
             <div class="w-1/3 flex flex-wrap gap-4">
               {Array.isArray(actions) ? (
@@ -55,7 +55,6 @@ const {
               )}
             </div>
             <div class="w-1/3 flex justify-end">
-              <div class="w-2 h-2 bg-gray-500"></div>
             </div>
           </div>
         </div>
@@ -64,13 +63,7 @@ const {
 
     {
       image && (
-        <div class="relative max-w-5xl mx-auto mt-12 border-t border-white/20 pt-12">
-          <div class="absolute top-0 right-0 -mt-1">
-            <div class="w-2 h-2 bg-gray-500"></div>
-          </div>
-          <div class="absolute top-0 left-0 -mt-1">
-            <div class="w-2 h-2 bg-gray-500"></div>
-          </div>
+        <div class="relative max-w-5xl mx-auto mt-12 pt-12">
           {typeof image === 'string' ? (
             <Fragment set:html={image} />
           ) : (
