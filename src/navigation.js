@@ -32,15 +32,15 @@ export const headerData = {
         },
         {
           text: 'Engenharia',
-          href: getPermalink('/use-cases/engineering'),
+          href: getPermalink('/use-cases/engineering.html'),
         },
         {
           text: 'RH & Pessoas',
-          href: getPermalink('/use-cases/hr-people'),
+          href: getPermalink('/use-cases/hr-people.html'),
         },
         {
           text: 'Comunicação & PR',
-          href: getPermalink('/use-cases/communication-pr'),
+          href: getPermalink('/use-cases/communication-pr.html'),
         },
       ],
     },
@@ -53,7 +53,7 @@ export const headerData = {
         // },
         {
           text: 'Equipe',
-          href: getPermalink('/about/team'),
+          href: getPermalink('/about/team.html'),
         },
       ],
     },
