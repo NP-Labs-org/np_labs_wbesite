@@ -26,7 +26,6 @@ const whenExternalScripts = (items = []) =>
 
 export default defineConfig({
   output: 'static',
-  trailingSlash: true,
   build: {
     format: 'file',
   },
