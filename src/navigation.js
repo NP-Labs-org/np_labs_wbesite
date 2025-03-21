@@ -28,7 +28,7 @@ export const headerData = {
       links: [
         {
           text: 'E-commerce',
-          href: getPermalink('/use-cases/e-commerce'),
+          href: getPermalink('/use-cases/e-commerce.html'),
         },
         {
           text: 'Engenharia',
